@@ -1,0 +1,6 @@
+version=1
+id=3426448380
+title=Stank's Suicide [B42/B41]
+description=Simple mod that adds the option to end the suffering early.
+tags=Build 41;Build 42
+visibility=public

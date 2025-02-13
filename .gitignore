@@ -1,0 +1,4 @@
+# Ignoring asset files for now to save space in GitHub
+# TODO: Should I just add these via Git LFS?
+assets/**
+!assets/.gitkeep
