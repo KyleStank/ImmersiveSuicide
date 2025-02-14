@@ -1,7 +1,6 @@
 local function addSuicideOption(player, context, worldObjects)
-    context:addOption('Suicide', worldObjects, function()
-        print("You have killed yourself")
-
+    context:addOption(getText("ContextMenu_StanksSuicide_Suicide"), worldObjects, function()
+        print("[Stank's Suicide] You have killed yourself")
         sendClientCommand("StanksSuicide", "killPlayer", { playerIndex = player })
     end)
 end

@@ -2,16 +2,15 @@ local function onKillPlayerCommand(module, command, player, args)
     if module == "StanksSuicide" and command == "killPlayer" then
         local playerObj = getSpecificPlayer(args.playerIndex)
         local body = playerObj:getBodyDamage()
-        local bodyParts = body:getBodyParts()
 
-        -- Mark all body parts as bitten and infected
-        for i = 0, BodyPartType.ToIndex(BodyPartType.MAX) - 1 do
-            local bodyPart = bodyParts:get(i)
-            bodyPart:SetBitten(true)
-            bodyPart:SetInfected(true)
+        -- Force zombification upon death if sandbox settings have it enabled
+        if SandboxVars.StanksSuicide.ForceZombification == true then
+            body:setInfected(true)
+            body:setInfectionTime(0)
         end
 
-        body:ReduceGeneralHealth(body:getOverallBodyHealth() + 10) -- Add small buffer to ensure all health is *always* removed
+        -- Add small buffer to ensure remaining health is *always* removed
+        body:ReduceGeneralHealth(body:getOverallBodyHealth() + 10)
     end
 end
 

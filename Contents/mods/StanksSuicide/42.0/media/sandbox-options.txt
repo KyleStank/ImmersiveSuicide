@@ -1,0 +1,10 @@
+VERSION = 1,
+
+option StanksSuicide.ForceZombification
+{
+    type = boolean,
+    default = false,
+
+    page = StanksSuicide,
+    translation = StanksSuicide_ForceZombification,
+}

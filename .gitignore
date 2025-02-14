@@ -2,3 +2,6 @@
 # TODO: Should I just add these via Git LFS?
 assets/**
 !assets/.gitkeep
+
+# IDEs
+.vscode
