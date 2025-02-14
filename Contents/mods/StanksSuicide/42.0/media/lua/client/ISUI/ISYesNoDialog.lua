@@ -10,7 +10,7 @@ function ISYesNoDialog:onClickCallback(button)
     end
 end
 
-function ISYesNoDialog:new(x, y, width, height, player, onYesCallback, onNoCallback)    
+function ISYesNoDialog:new(x, y, width, height, player, onYesCallback, onNoCallback)
     local dialog = ISModalDialog:new(
         x, y, width, height, getText("UI_StanksSuicide_ConfirmSuicide"), true, nil, ISYesNoDialog.onClickCallback, player, nil, nil)
     setmetatable(dialog, self)
