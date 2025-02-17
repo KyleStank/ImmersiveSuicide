@@ -11,14 +11,14 @@ function ISYesNoDialog:onClickCallback(button)
 end
 
 function ISYesNoDialog:new(x, y, width, height, player, onYesCallback, onNoCallback)
-    local dialog = ISModalDialog:new(
+    local obj = ISModalDialog:new(
         x, y, width, height, getText("UI_StanksSuicide_ConfirmSuicide"), true, nil, ISYesNoDialog.onClickCallback, player, nil, nil)
-    setmetatable(dialog, self)
+    setmetatable(obj, self)
     self.__index = self;
 
-    dialog.onYesCallback = onYesCallback
-    dialog.onNoCallback = onNoCallback
-    dialog.target = dialog
+    obj.onYesCallback = onYesCallback
+    obj.onNoCallback = onNoCallback
+    obj.target = obj
 
-    return dialog
+    return obj
 end

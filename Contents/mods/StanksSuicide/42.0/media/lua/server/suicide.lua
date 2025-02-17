@@ -9,8 +9,7 @@ local function onKillPlayerCommand(module, command, player, args)
             body:setInfectionTime(0)
         end
 
-        -- Add small buffer to ensure remaining health is *always* removed
-        body:ReduceGeneralHealth(body:getOverallBodyHealth() + 10)
+        playerObj:Kill(playerObj)
     end
 end
 

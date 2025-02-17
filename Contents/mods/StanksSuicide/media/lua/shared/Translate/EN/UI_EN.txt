@@ -1,3 +1,13 @@
 UI_EN = {
-    UI_StanksSuicide_ConfirmSuicide = "Are you sure you want to end your suffering? There is no going back after this."
+    UI_StanksSuicide_ConfirmSuicide = "Are you sure you want to end your suffering? There is no going back after this.",
+
+    UI_StanksSuicide_TwoHands_Tooltip = "Temporarily Unavailable",
+    UI_StanksSuicide_TwoHands_Tooltip_Description = "Two-handed gun suicides is in active development and will be complete very soon.",
+
+    UI_StanksSuicide_EquipRequired_Tooltip = "Must Equip",
+    UI_StanksSuicide_EquipRequired_OneHand_Description = "Must be equipped in primary hand",
+    UI_StanksSuicide_EquipRequired_TwoHands_Tooltip_Description = "Must be equipped in both hands",
+
+    UI_StanksSuicide_NoShoot_Tooltip = "Ammo Required",
+    UI_StanksSuicide_NoShoot_Tooltip_Description = "At least one bullet must be chambered.",
 }
