@@ -44,9 +44,6 @@ local function playWeaponEffects(character, weapon)
     end
 
     character:addWorldSoundUnlessInvisible(radius, weapon:getSoundVolume(), false);
-    character:startMuzzleFlash()
-
-    character:splatBloodFloorBig()
 end
 
 -- Ripped from ISReloadWeaponAction.onShoot
@@ -102,12 +99,13 @@ local function killCharacter(character)
         body:setInfectionLevel(0)
     end
     
-    character:Kill(character)
+    sendClientCommand("StanksSuicide", "requestPerformSuicide", {})
 end
 
 function SuicideTimedAction:shootWeapon()
     playWeaponEffects(self.character, self.weapon)
     processWeaponAmmo(self.character, self.weapon)
+    sendClientCommand("StanksSuicide", "requestSynchronizedCharacterFX", {})
     killCharacter(self.character)
 end
 
@@ -141,3 +139,21 @@ function SuicideTimedAction:new(character, weapon, anim)
 
     return obj
 end
+
+local function onSuicideServerCommand(module, command, args)
+    if module ~= "StanksSuicide" then
+        return
+    end
+
+    if command == "recieveSynchronizedCharacterFX" then
+        local character = getPlayerByOnlineID(args.playerOnlineId)
+        character:startMuzzleFlash()
+        character:splatBloodFloorBig()
+    end
+
+    if command == "recievePerformSuicide" then
+        local character = getPlayerByOnlineID(args.playerOnlineId)
+        character:Kill(character)
+    end
+end
+Events.OnServerCommand.Add(onSuicideServerCommand)

@@ -1,7 +1,7 @@
 require "Actions/SuicideTimedAction"
 
 local function performOneHandedSuicide(playerObj, item)
-    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_OneHand_1"))
+    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_OneHand"))
 end
 
 local function performTwoHandedSuicide(playerObj, item)
