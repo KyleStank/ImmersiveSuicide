@@ -1,11 +1,11 @@
 require "Actions/SuicideTimedAction"
 
 local function performOneHandedSuicide(playerObj, item)
-    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_OneHand"))
+    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_OneHand", 40))
 end
 
 local function performTwoHandedSuicide(playerObj, item)
-    print("[Stank's Suicide] TODO: Implement two-handed suicide functionality")
+    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_TwoHands", 75))
 end
 
 local function promptSuicideConfirmation(playerObj, item, type)
@@ -56,13 +56,7 @@ local function addSuicideOptionInventory(player, context, items)
     for _, item in ipairs(invItems) do
         if instanceof(item, "HandWeapon") and item:isAimedFirearm() then
             local option = context:addOption(getText("ContextMenu_StanksSuicide_Suicide"), playerObj, onSuicideInventoryOptionSelected, item)
-            if item:isRequiresEquippedBothHands() then
-                -- TODO: Add real support for two-handed weapons
-                createAndSetDisabledToolTipForOption(
-                    getText("UI_StanksSuicide_TwoHands_Tooltip"),
-                    getText("UI_StanksSuicide_TwoHands_Tooltip_Description"),
-                    option)
-            elseif item:isRequiresEquippedBothHands() and not playerObj:isItemInBothHands(item) then
+            if item:isRequiresEquippedBothHands() and not playerObj:isItemInBothHands(item) then
                 createAndSetDisabledToolTipForOption(
                     getText("UI_StanksSuicide_EquipRequired_Tooltip"),
                     getText("UI_StanksSuicide_EquipRequired_TwoHands_Tooltip_Description"),

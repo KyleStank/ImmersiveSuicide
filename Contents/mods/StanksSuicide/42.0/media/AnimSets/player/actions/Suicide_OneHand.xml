@@ -18,7 +18,7 @@
 		<m_TimePc>0.33</m_TimePc>
 	</m_Events>
 	<m_Events>
-		<m_EventName>completeTime</m_EventName>
-		<m_TimePc>0.45</m_TimePc>
+		<m_EventName>killTime</m_EventName>
+		<m_TimePc>0.33</m_TimePc>
 	</m_Events>
 </animNode>

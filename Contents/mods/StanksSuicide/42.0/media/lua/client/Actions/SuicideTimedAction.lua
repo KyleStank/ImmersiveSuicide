@@ -28,10 +28,6 @@ function SuicideTimedAction:update()
     if gameSpeed ~= 1 then
         UIManager:getSpeedControls():SetCurrentGameSpeed(1)
     end
-
-    if self.isComplete then
-        self:forceComplete()
-    end
 end
 
 -- Ripped from ISReloadWeaponAction.attackHook
@@ -106,7 +102,6 @@ function SuicideTimedAction:shootWeapon()
     playWeaponEffects(self.character, self.weapon)
     processWeaponAmmo(self.character, self.weapon)
     sendClientCommand("StanksSuicide", "requestSynchronizedCharacterFX", {})
-    killCharacter(self.character)
 end
 
 function SuicideTimedAction:animEvent(event, parameter)
@@ -114,8 +109,9 @@ function SuicideTimedAction:animEvent(event, parameter)
         self:shootWeapon()
     end
 
-    if event == "completeTime" then
-        self.isComplete = true
+    if event == "killTime" then
+        killCharacter(self.character)
+        self:forceComplete()
     end
 end
 
@@ -123,7 +119,7 @@ function SuicideTimedAction:perform()
     ISBaseTimedAction.perform(self)
 end
 
-function SuicideTimedAction:new(character, weapon, anim)
+function SuicideTimedAction:new(character, weapon, anim, maxTime)
     local obj = ISBaseTimedAction:new(character)
     setmetatable(obj, self)
     self.__index = self
@@ -131,11 +127,15 @@ function SuicideTimedAction:new(character, weapon, anim)
     obj.stopOnAim = true
     obj.stopOnWalk = true
     obj.stopOnRun = true
-    obj.maxTime = 48 -- No real purpose for maxTime as real functionality uses animation events. This is only here to keep the progress bar there.
+    
+    if maxTime == nil then
+        obj.maxTime = -1
+    else
+        obj.maxTime = maxTime
+    end
 
     obj.anim = anim
     obj.weapon = weapon
-    obj.isComplete = false
 
     return obj
 end

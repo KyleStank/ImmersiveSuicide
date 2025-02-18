@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animNode>
-	<m_Name>Suicide_OneHand</m_Name>
-	<m_AnimName>Bob_Suicide_Handgun</m_AnimName>
+	<m_Name>Suicide_TwoHands</m_Name>
+	<m_AnimName>Bob_Suicide_Rifle</m_AnimName>
 	<m_deferredBoneAxis>Y</m_deferredBoneAxis>
 	<m_SyncTrackingEnabled>false</m_SyncTrackingEnabled>
 	<m_Conditions>
 		<m_Name>PerformingAction</m_Name>
 		<m_Type>STRING</m_Type>
-		<m_StringValue>Suicide_OneHand</m_StringValue>
+		<m_StringValue>Suicide_TwoHands</m_StringValue>
 	</m_Conditions>
 	<m_SubStateBoneWeights>
 		<boneName>Dummy01</boneName>
@@ -15,10 +15,10 @@
 	</m_SubStateBoneWeights>
 	<m_Events>
 		<m_EventName>shootTime</m_EventName>
-		<m_TimePc>0.33</m_TimePc>
+		<m_TimePc>0.55</m_TimePc>
 	</m_Events>
 	<m_Events>
 		<m_EventName>killTime</m_EventName>
-		<m_TimePc>0.33</m_TimePc>
+		<m_TimePc>0.65</m_TimePc>
 	</m_Events>
 </animNode>
