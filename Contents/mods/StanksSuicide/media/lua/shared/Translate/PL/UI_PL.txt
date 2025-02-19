@@ -1,0 +1,10 @@
+UI_PL = {
+    UI_StanksSuicide_ConfirmSuicide = "Czy na pewno chcesz zakoñczyæ swoje cierpienie? Po tym nie ma ju¿ odwrotu.",
+
+    UI_StanksSuicide_EquipRequired_Tooltip = "Nale¿y wyposa¿yæ",
+    UI_StanksSuicide_EquipRequired_OneHand_Description = "Musi byæ wyposa¿ony w rêkê g³ówn¹",
+    UI_StanksSuicide_EquipRequired_TwoHands_Tooltip_Description = "Musi byæ wyposa¿ony w obie rêce",
+
+    UI_StanksSuicide_NoShoot_Tooltip = "Wymagana amunicja",
+    UI_StanksSuicide_NoShoot_Tooltip_Description = "Przynajmniej jeden nabój musi byæ umieszczony w komorze.",
+}

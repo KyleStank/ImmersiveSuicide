@@ -1,0 +1,10 @@
+UI_TR = {
+    UI_StanksSuicide_ConfirmSuicide = "Acýnýza son vermek istediðinizden emin misiniz? Bu saatten sonra geri dönüþ yok.",
+
+    UI_StanksSuicide_EquipRequired_Tooltip = "Donatýlmalýdýr",
+    UI_StanksSuicide_EquipRequired_OneHand_Description = "Birincil elde donatýlmalýdýr",
+    UI_StanksSuicide_EquipRequired_TwoHands_Tooltip_Description = "Her iki el de donatýlmalýdýr",
+
+    UI_StanksSuicide_NoShoot_Tooltip = "Cephane Gerekli",
+    UI_StanksSuicide_NoShoot_Tooltip_Description = "En az bir merminin fiþek yataðýnda olmasý gerekir.",
+}

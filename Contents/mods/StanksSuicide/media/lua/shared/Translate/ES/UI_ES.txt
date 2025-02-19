@@ -1,0 +1,10 @@
+UI_ES = {
+    UI_StanksSuicide_ConfirmSuicide = "¿Estás seguro de que quieres acabar con tu sufrimiento? No hay vuelta atrás después de esto.",
+
+    UI_StanksSuicide_EquipRequired_Tooltip = "Debe equiparse",
+    UI_StanksSuicide_EquipRequired_OneHand_Description = "Debe estar equipado en la mano primaria",
+    UI_StanksSuicide_EquipRequired_TwoHands_Tooltip_Description = "Debe estar equipado en ambas manos",
+
+    UI_StanksSuicide_NoShoot_Tooltip = "Munición necesaria",
+    UI_StanksSuicide_NoShoot_Tooltip_Description = "Al menos una bala debe estar alojada en la recámara.",
+}

@@ -1,0 +1,10 @@
+UI_JP = {
+    UI_StanksSuicide_ConfirmSuicide = "本当に苦しみを終わらせたいのか？もう後戻りはできない。",
+
+    UI_StanksSuicide_EquipRequired_Tooltip = "装備必須",
+    UI_StanksSuicide_EquipRequired_OneHand_Description = "プライマリー・ハンドに装備すること",
+    UI_StanksSuicide_EquipRequired_TwoHands_Tooltip_Description = "両手に装備すること",
+
+    UI_StanksSuicide_NoShoot_Tooltip = "必要弾薬",
+    UI_StanksSuicide_NoShoot_Tooltip_Description = "少なくとも1つの弾丸が装填されていなければならない。",
+}

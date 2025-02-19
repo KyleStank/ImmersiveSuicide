@@ -1,0 +1,6 @@
+Sandbox_PH = {
+    Sandbox_StanksSuicide = "Stank's Suicide",
+    
+    Sandbox_StanksSuicide_ForceZombification = "Puwersang Zombipikasyon?",
+    Sandbox_StanksSuicide_ForceZombification_tooltip = "Kapag sinuri, ang manlalaro ay palaging magiging zombie pagkatapos magpakamatay, kahit na hindi naman nahawaan.",
+}

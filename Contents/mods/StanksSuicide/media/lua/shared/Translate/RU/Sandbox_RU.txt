@@ -1,0 +1,6 @@
+Sandbox_RU = {
+    Sandbox_StanksSuicide = "Stank's Suicide",
+    
+    Sandbox_StanksSuicide_ForceZombification = "Принудительное зомбирование?",
+    Sandbox_StanksSuicide_ForceZombification_tooltip = "Если этот флажок установлен, игрок всегда станет зомби после самоубийства, даже если он не заражен.",
+}

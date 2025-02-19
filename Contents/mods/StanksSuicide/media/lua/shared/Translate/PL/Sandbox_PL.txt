@@ -1,0 +1,6 @@
+Sandbox_PL = {
+    Sandbox_StanksSuicide = "Stank's Suicide",
+    
+    Sandbox_StanksSuicide_ForceZombification = "Wymuszona zombiefikacja?",
+    Sandbox_StanksSuicide_ForceZombification_tooltip = "Po zaznaczeniu gracz zawsze stanie siê zombie po samobójstwie, nawet jeœli nie jest zara¿ony.",
+}

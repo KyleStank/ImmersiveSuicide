@@ -1,0 +1,6 @@
+Sandbox_CS = {
+    Sandbox_StanksSuicide = "Stank's Suicide",
+    
+    Sandbox_StanksSuicide_ForceZombification = "Zombifikace silou?",
+    Sandbox_StanksSuicide_ForceZombification_tooltip = "Pokud je zaškrtnuto, hráè se po sebevraždì vždy stane zombie, i když není nakažený.",
+}
