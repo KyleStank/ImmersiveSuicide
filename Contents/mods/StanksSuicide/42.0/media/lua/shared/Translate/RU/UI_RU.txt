@@ -1,0 +1,10 @@
+UI_RU = {
+    UI_StanksSuicide_ConfirmSuicide = "Вы уверены, что хотите положить конец своим страданиям? После этого пути назад нет.",
+
+    UI_StanksSuicide_EquipRequired_Tooltip = "Необходимо оборудовать",
+    UI_StanksSuicide_EquipRequired_OneHand_Description = "Должен быть в первичных руках",
+    UI_StanksSuicide_EquipRequired_TwoHands_Tooltip_Description = "Должен быть в обеих руках",
+
+    UI_StanksSuicide_NoShoot_Tooltip = "Требуются боеприпасы",
+    UI_StanksSuicide_NoShoot_Tooltip_Description = "Хотя бы одна пуля должна быть патронной.",
+}

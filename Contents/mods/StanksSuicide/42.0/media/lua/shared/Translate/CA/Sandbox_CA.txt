@@ -1,0 +1,6 @@
+Sandbox_CA = {
+    Sandbox_StanksSuicide = "Stank's Suicide",
+    
+    Sandbox_StanksSuicide_ForceZombification = "Forçar la zombificació?",
+    Sandbox_StanksSuicide_ForceZombification_tooltip = "Quan es marca, el jugador sempre es convertirà en zombi després del suïcidi, encara que no estigui infectat.",
+}

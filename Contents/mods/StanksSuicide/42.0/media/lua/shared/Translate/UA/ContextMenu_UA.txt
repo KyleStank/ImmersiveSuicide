@@ -1,0 +1,3 @@
+ContextMenu_UA = {
+    ContextMenu_StanksSuicide_Suicide = "самогубство",
+}

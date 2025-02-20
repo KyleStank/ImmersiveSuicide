@@ -1,0 +1,3 @@
+ContextMenu_HU = {
+    ContextMenu_StanksSuicide_Suicide = "Öngyilkosság",
+}

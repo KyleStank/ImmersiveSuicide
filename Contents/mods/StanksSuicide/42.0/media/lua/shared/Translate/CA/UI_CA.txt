@@ -1,0 +1,10 @@
+UI_CA = {
+    UI_StanksSuicide_ConfirmSuicide = "Estàs segur que vols acabar amb el teu patiment? No hi ha marxa enrere després d'això.",
+
+    UI_StanksSuicide_EquipRequired_Tooltip = "Cal equipar",
+    UI_StanksSuicide_EquipRequired_OneHand_Description = "Ha d'estar equipat a mà primària",
+    UI_StanksSuicide_EquipRequired_TwoHands_Tooltip_Description = "Ha d'anar equipat amb les dues mans",
+
+    UI_StanksSuicide_NoShoot_Tooltip = "Munició necessària",
+    UI_StanksSuicide_NoShoot_Tooltip_Description = "Almenys una bala ha d'estar amb cambra.",
+}

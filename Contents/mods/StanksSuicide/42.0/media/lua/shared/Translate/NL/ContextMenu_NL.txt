@@ -1,0 +1,3 @@
+ContextMenu_NL = {
+    ContextMenu_StanksSuicide_Suicide = "Zelfmoord",
+}

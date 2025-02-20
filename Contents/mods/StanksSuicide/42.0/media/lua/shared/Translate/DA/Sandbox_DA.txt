@@ -1,0 +1,6 @@
+Sandbox_DA = {
+    Sandbox_StanksSuicide = "Stank's Suicide",
+    
+    Sandbox_StanksSuicide_ForceZombification = "Tvinge zombificering?",
+    Sandbox_StanksSuicide_ForceZombification_tooltip = "Når det er markeret, vil spilleren altid blive en zombie efter selvmord, selvom den ikke er inficeret.",
+}

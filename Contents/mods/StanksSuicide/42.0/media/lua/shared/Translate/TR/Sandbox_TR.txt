@@ -1,0 +1,6 @@
+Sandbox_TR = {
+    Sandbox_StanksSuicide = "Stank's Suicide",
+    
+    Sandbox_StanksSuicide_ForceZombification = "Zorla Zombileştirme mi?",
+    Sandbox_StanksSuicide_ForceZombification_tooltip = "İşaretlendiğinde, oyuncu enfekte olmasa bile intihardan sonra her zaman bir zombiye dönüşecektir.",
+}
