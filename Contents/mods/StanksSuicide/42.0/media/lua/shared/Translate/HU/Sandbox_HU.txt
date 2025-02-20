@@ -1,6 +1,0 @@
-Sandbox_HU = {
-    Sandbox_StanksSuicide = "Stank's Suicide",
-    
-    Sandbox_StanksSuicide_ForceZombification = "Erő zombifikáció?",
-    Sandbox_StanksSuicide_ForceZombification_tooltip = "Ha be van jelölve, a játékos öngyilkosság után mindig zombivá válik, még akkor is, ha nem fertőzött.",
-}

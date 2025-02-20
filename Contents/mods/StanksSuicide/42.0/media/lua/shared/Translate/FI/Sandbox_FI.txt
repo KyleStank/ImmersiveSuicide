@@ -1,6 +1,0 @@
-Sandbox_FI = {
-    Sandbox_StanksSuicide = "Stank's Suicide",
-    
-    Sandbox_StanksSuicide_ForceZombification = "Pakottaa Zombifikaatio?",
-    Sandbox_StanksSuicide_ForceZombification_tooltip = "Kun tämä on valittuna, pelaajasta tulee aina zombi itsemurhan jälkeen, vaikka se ei olisi saanut tartuntaa.",
-}

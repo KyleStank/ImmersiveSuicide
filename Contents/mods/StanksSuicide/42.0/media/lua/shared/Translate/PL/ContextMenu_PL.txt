@@ -1,3 +1,0 @@
-ContextMenu_PL = {
-    ContextMenu_StanksSuicide_Suicide = "Samobójstwo",
-}

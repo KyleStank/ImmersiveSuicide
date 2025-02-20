@@ -1,3 +1,0 @@
-ContextMenu_ID = {
-    ContextMenu_StanksSuicide_Suicide = "Bunuh diri",
-}

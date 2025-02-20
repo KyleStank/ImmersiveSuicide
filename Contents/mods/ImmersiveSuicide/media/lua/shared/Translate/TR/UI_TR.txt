@@ -1,0 +1,10 @@
+UI_TR = {
+    UI_ImmersiveSuicide_ConfirmSuicide = "Ac�n�za son vermek istedi�inizden emin misiniz? Bu saatten sonra geri d�n�� yok.",
+
+    UI_ImmersiveSuicide_EquipRequired_Tooltip = "Donat�lmal�d�r",
+    UI_ImmersiveSuicide_EquipRequired_OneHand_Description = "Birincil elde donat�lmal�d�r",
+    UI_ImmersiveSuicide_EquipRequired_TwoHands_Tooltip_Description = "Her iki el de donat�lmal�d�r",
+
+    UI_ImmersiveSuicide_NoShoot_Tooltip = "Cephane Gerekli",
+    UI_ImmersiveSuicide_NoShoot_Tooltip_Description = "En az bir merminin fi�ek yata��nda olmas� gerekir.",
+}

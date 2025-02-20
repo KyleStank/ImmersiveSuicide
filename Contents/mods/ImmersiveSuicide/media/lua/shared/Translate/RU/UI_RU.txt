@@ -1,0 +1,10 @@
+UI_RU = {
+    UI_ImmersiveSuicide_ConfirmSuicide = "�� �������, ��� ������ �������� ����� ����� ����������? ����� ����� ���� ����� ���.",
+
+    UI_ImmersiveSuicide_EquipRequired_Tooltip = "���������� �����������",
+    UI_ImmersiveSuicide_EquipRequired_OneHand_Description = "������ ���� � ��������� �����",
+    UI_ImmersiveSuicide_EquipRequired_TwoHands_Tooltip_Description = "������ ���� � ����� �����",
+
+    UI_ImmersiveSuicide_NoShoot_Tooltip = "��������� ����������",
+    UI_ImmersiveSuicide_NoShoot_Tooltip_Description = "���� �� ���� ���� ������ ���� ���������.",
+}

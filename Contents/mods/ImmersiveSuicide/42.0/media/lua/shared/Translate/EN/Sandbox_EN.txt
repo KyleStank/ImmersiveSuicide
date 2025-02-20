@@ -1,0 +1,6 @@
+Sandbox_EN = {
+    Sandbox_ImmersiveSuicide = "Immersive Suicide",
+    
+    Sandbox_ImmersiveSuicide_ForceZombification = "Force Zombification?",
+    Sandbox_ImmersiveSuicide_ForceZombification_tooltip = "When checked, player will always become a zombie after suicide, even if not infected.",
+}

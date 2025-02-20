@@ -1,6 +1,0 @@
-Sandbox_UA = {
-    Sandbox_StanksSuicide = "Stank's Suicide",
-    
-    Sandbox_StanksSuicide_ForceZombification = "Силове зомбування?",
-    Sandbox_StanksSuicide_ForceZombification_tooltip = "Якщо позначено, гравець завжди стане зомбі після самогубства, навіть якщо він не заражений.",
-}

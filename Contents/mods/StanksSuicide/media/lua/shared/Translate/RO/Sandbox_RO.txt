@@ -1,6 +1,0 @@
-Sandbox_RO = {
-    Sandbox_StanksSuicide = "Stank's Suicide",
-    
-    Sandbox_StanksSuicide_ForceZombification = "Zombificare forțată?",
-    Sandbox_StanksSuicide_ForceZombification_tooltip = "Când este bifat, jucătorul va deveni întotdeauna un zombi după sinucidere, chiar dacă nu este infectat.",
-}

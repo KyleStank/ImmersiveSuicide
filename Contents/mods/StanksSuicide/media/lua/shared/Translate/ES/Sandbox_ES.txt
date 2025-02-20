@@ -1,6 +1,0 @@
-Sandbox_ES = {
-    Sandbox_StanksSuicide = "Stank's Suicide",
-    
-    Sandbox_StanksSuicide_ForceZombification = "¿Forzar la zombificación?",
-    Sandbox_StanksSuicide_ForceZombification_tooltip = "Si está marcada, el jugador siempre se convertirá en zombi después de suicidarse, aunque no esté infectado.",
-}

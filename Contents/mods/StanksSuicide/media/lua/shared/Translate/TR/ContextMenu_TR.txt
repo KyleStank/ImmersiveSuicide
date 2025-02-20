@@ -1,3 +1,0 @@
-ContextMenu_TR = {
-    ContextMenu_StanksSuicide_Suicide = "Ýntihar",
-}

@@ -1,0 +1,10 @@
+VERSION = 1,
+
+option ImmersiveSuicide.ForceZombification
+{
+    type = boolean,
+    default = false,
+
+    page = ImmersiveSuicide,
+    translation = ImmersiveSuicide_ForceZombification,
+}
