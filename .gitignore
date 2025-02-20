@@ -5,3 +5,5 @@ assets/**
 
 # IDEs
 .vscode
+
+dist

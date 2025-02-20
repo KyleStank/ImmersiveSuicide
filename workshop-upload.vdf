@@ -1,0 +1,8 @@
+"workshopitem"
+{
+	"appid"           "108600"
+	"publishedfileid" "3426448380"
+	"contentfolder"   "/path/to/Zomboid/Workshop/ImmersiveSuicide/dist"
+	"previewfile"     "/path/to/Zomboid/Workshop/ImmersiveSuicide/dist/preview.gif"
+	"changenote"	  ""
+}
