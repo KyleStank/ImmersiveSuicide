@@ -53,24 +53,30 @@ end
 local function addSuicideOptionInventory(player, context, items)
     local playerObj = getSpecificPlayer(player)
     local invItems = ISInventoryPane.getActualItems(items)
+    local addedItems = {} -- Track item types that have had context menu added to them
     for _, item in ipairs(invItems) do
         if instanceof(item, "HandWeapon") and item:isAimedFirearm() then
-            local option = context:addOption(getText("ContextMenu_ImmersiveSuicide_Suicide"), playerObj, onSuicideInventoryOptionSelected, item)
-            if item:isRequiresEquippedBothHands() and not playerObj:isItemInBothHands(item) then
-                createAndSetDisabledToolTipForOption(
-                    getText("UI_ImmersiveSuicide_EquipRequired_Tooltip"),
-                    getText("UI_ImmersiveSuicide_EquipRequired_TwoHands_Tooltip_Description"),
-                    option)
-            elseif not item:isRequiresEquippedBothHands() and not playerObj:isPrimaryHandItem(item) then
-                createAndSetDisabledToolTipForOption(
-                    getText("UI_ImmersiveSuicide_EquipRequired_Tooltip"),
-                    getText("UI_ImmersiveSuicide_EquipRequired_OneHand_Description"),
-                    option)
-            elseif not ISReloadWeaponAction.canShoot(item) then
-                createAndSetDisabledToolTipForOption(
-                    getText("UI_ImmersiveSuicide_NoShoot_Tooltip"),
-                    getText("UI_ImmersiveSuicide_NoShoot_Tooltip_Description"),
-                    option)
+            local itemType = item:getFullType() .. "_" .. item:getName()
+            if not addedItems[itemType] then
+                addedItems[itemType] = true
+
+                local option = context:addOption(getText("ContextMenu_ImmersiveSuicide_Suicide"), playerObj, onSuicideInventoryOptionSelected, item)
+                if item:isRequiresEquippedBothHands() and not playerObj:isItemInBothHands(item) then
+                    createAndSetDisabledToolTipForOption(
+                        getText("UI_ImmersiveSuicide_EquipRequired_Tooltip"),
+                        getText("UI_ImmersiveSuicide_EquipRequired_TwoHands_Tooltip_Description"),
+                        option)
+                elseif not item:isRequiresEquippedBothHands() and not playerObj:isPrimaryHandItem(item) then
+                    createAndSetDisabledToolTipForOption(
+                        getText("UI_ImmersiveSuicide_EquipRequired_Tooltip"),
+                        getText("UI_ImmersiveSuicide_EquipRequired_OneHand_Description"),
+                        option)
+                elseif not ISReloadWeaponAction.canShoot(item) then
+                    createAndSetDisabledToolTipForOption(
+                        getText("UI_ImmersiveSuicide_NoShoot_Tooltip"),
+                        getText("UI_ImmersiveSuicide_NoShoot_Tooltip_Description"),
+                        option)
+                end
             end
         end
     end
