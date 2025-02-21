@@ -1,6 +1,8 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/N4N61AUUX0)
+
 # Immersive Suicide
 
-Simple Project Zomboid mod that adds the option to end an injured character's suffering. Works in Build 42 and Build 41.
+Project Zomboid mod that adds the option to immersivley end the suffering early. Actively maintained and supported.
 
 ## Setting Screenshot via SteamCMD
 
