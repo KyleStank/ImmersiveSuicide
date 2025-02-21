@@ -82,10 +82,6 @@ local function syncCharacterFX(character)
 end
 
 local function performSuicide(character)
-    character:Kill(character)
-end
-
-local function killCharacter(character)
     local body = character:getBodyDamage()
     local head = body:getBodyPart(BodyPartType.Head)
 
@@ -96,14 +92,20 @@ local function killCharacter(character)
     -- Otherwise, prevent zombie (even if bitten) because the head just got annihilated
     if SandboxVars.ImmersiveSuicide.ForceZombification == true then
         body:setInfected(true)
-        body:setInfectionMortalityDuration(0)
+        body:setInfectionMortalityDuration(-1)
+        body:setInfectionTime(-1)
         body:setInfectionLevel(100)
     else
         body:setInfected(false)
-        body:setInfectionMortalityDuration(-1)
+        body:setInfectionMortalityDuration(0)
+        body:setInfectionTime(0)
         body:setInfectionLevel(0)
     end
     
+    character:Kill(character)
+end
+
+local function killCharacter(character)
     if isClient() then
         sendClientCommand("ImmersiveSuicide", "requestPerformSuicide", {})
     else
