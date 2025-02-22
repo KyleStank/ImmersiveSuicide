@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animNode>
+	<m_Name>Suicide_Handgun_02</m_Name>
+	<m_AnimName>Bob_Suicide_Handgun02</m_AnimName>
+	<m_deferredBoneAxis>Y</m_deferredBoneAxis>
+	<m_SyncTrackingEnabled>false</m_SyncTrackingEnabled>
+	<m_Conditions>
+		<m_Name>PerformingAction</m_Name>
+		<m_Type>STRING</m_Type>
+		<m_StringValue>Suicide_Handgun_02</m_StringValue>
+	</m_Conditions>
+	<m_SubStateBoneWeights>
+		<boneName>Dummy01</boneName>
+		<weight>1.0</weight>
+	</m_SubStateBoneWeights>
+	<m_Events>
+		<m_EventName>shootTime</m_EventName>
+		<m_TimePc>0.33</m_TimePc>
+	</m_Events>
+	<m_Events>
+		<m_EventName>killTime</m_EventName>
+		<m_TimePc>0.38</m_TimePc>
+	</m_Events>
+</animNode>

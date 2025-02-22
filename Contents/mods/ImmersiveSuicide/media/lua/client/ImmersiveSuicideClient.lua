@@ -1,11 +1,15 @@
 require "Actions/SuicideTimedAction"
 
 local function performOneHandedSuicide(playerObj, item)
-    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_OneHand", 40))
+    local animations = {"Suicide_Handgun", "Suicide_Handgun_02", "Suicide_Handgun_03"}
+    local randomIndex = Math.floor(Math.random() * 3) + 1
+    local selectedAnimation = animations[randomIndex]
+
+    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, selectedAnimation))
 end
 
 local function performTwoHandedSuicide(playerObj, item)
-    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_TwoHands", 75))
+    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_Rifle"))
 end
 
 local function promptSuicideConfirmation(playerObj, item, type)

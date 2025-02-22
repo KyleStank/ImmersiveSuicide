@@ -149,6 +149,7 @@ function SuicideTimedAction:new(character, weapon, anim, maxTime)
     
     if maxTime == nil then
         obj.maxTime = -1
+        obj.useProgressBar = false
     else
         obj.maxTime = maxTime
     end
