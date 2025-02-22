@@ -1,10 +1,10 @@
 UI_TR = {
-    UI_ImmersiveSuicide_ConfirmSuicide = "Acï¿½nï¿½za son vermek istediï¿½inizden emin misiniz? Bu saatten sonra geri dï¿½nï¿½ï¿½ yok.",
+    UI_ImmersiveSuicide_ConfirmSuicide = "Acýnýza son vermek istediðinizden emin misiniz? Unutmayýn, bunun geri dönüþü yok.",
 
-    UI_ImmersiveSuicide_EquipRequired_Tooltip = "Donatï¿½lmalï¿½dï¿½r",
-    UI_ImmersiveSuicide_EquipRequired_OneHand_Description = "Birincil elde donatï¿½lmalï¿½dï¿½r",
-    UI_ImmersiveSuicide_EquipRequired_TwoHands_Tooltip_Description = "Her iki el de donatï¿½lmalï¿½dï¿½r",
+    UI_ImmersiveSuicide_EquipRequired_Tooltip = "Kuþanýlmalýdýr",
+    UI_ImmersiveSuicide_EquipRequired_OneHand_Description = "Birincil elde kuþanýlmalýdýr",
+    UI_ImmersiveSuicide_EquipRequired_TwoHands_Tooltip_Description = "Ýki elle kuþanýlmalýdýr",
 
     UI_ImmersiveSuicide_NoShoot_Tooltip = "Cephane Gerekli",
-    UI_ImmersiveSuicide_NoShoot_Tooltip_Description = "En az bir merminin fiï¿½ek yataï¿½ï¿½nda olmasï¿½ gerekir.",
+    UI_ImmersiveSuicide_NoShoot_Tooltip_Description = "Silahýnýzda þarjör ve en az bir mermi bulunmasý gerekiyor.",
 }
