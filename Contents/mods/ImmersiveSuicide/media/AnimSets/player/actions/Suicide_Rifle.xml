@@ -4,6 +4,7 @@
 	<m_AnimName>Bob_Suicide_Rifle</m_AnimName>
 	<m_deferredBoneAxis>Y</m_deferredBoneAxis>
 	<m_SyncTrackingEnabled>false</m_SyncTrackingEnabled>
+	<m_SpeedScale>PerformSuicideSpeed</m_SpeedScale>
 	<m_Conditions>
 		<m_Name>PerformingAction</m_Name>
 		<m_Type>STRING</m_Type>

@@ -150,9 +150,33 @@ function SuicideTimedAction:new(character, weapon, anim, maxTime)
     if maxTime == nil then
         obj.maxTime = -1
         obj.useProgressBar = false
+        obj.animSpeed = 1
     else
         obj.maxTime = maxTime
+        obj.animSpeed = 1
+
+        -- If Efficiency Skill mod is enabled, update animation speed to a ratio relative of efficiency skill
+        if Perks.Efficiency ~= nil then
+            local efficiency = obj.character:getPerkLevel(Perks.Efficiency)
+            local efficiencyMultipliers = {
+                SandboxVars.Efficiency.Level0,
+                SandboxVars.Efficiency.Level1,
+                SandboxVars.Efficiency.Level2,
+                SandboxVars.Efficiency.Level3,
+                SandboxVars.Efficiency.Level4,
+                SandboxVars.Efficiency.Level5,
+                SandboxVars.Efficiency.Level6,
+                SandboxVars.Efficiency.Level7,
+                SandboxVars.Efficiency.Level8,
+                SandboxVars.Efficiency.Level9,
+                SandboxVars.Efficiency.Level10,
+            }
+            
+            local efficientTime = maxTime * efficiencyMultipliers[efficiency + 1]
+            obj.animSpeed = 1 + (maxTime / efficientTime) -- Apply percentage increase
+        end
     end
+    obj.character:setVariable("PerformSuicideSpeed", obj.animSpeed)
 
     obj.anim = anim
     obj.weapon = weapon
