@@ -3,5 +3,6 @@ author=kStank
 name=Immersive Suicide
 description=Simple mod that adds the option to end the suffering early.
 poster=poster.png
+icon=poster_icon.png
 versionMin=42.0
-modversion=1.0.7
+modversion=1.0.8
