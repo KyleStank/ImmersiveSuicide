@@ -1,6 +1,6 @@
 Sandbox_RU = {
     Sandbox_ImmersiveSuicide = "Immersive Suicide",
     
-    Sandbox_ImmersiveSuicide_ForceZombification = "Принудительное зомбирование?",
-    Sandbox_ImmersiveSuicide_ForceZombification_tooltip = "Если этот флажок установлен, игрок всегда станет зомби после самоубийства, даже если он не заражен.",
+    Sandbox_ImmersiveSuicide_ForceZombification = "Принудительная зомбификация",
+    Sandbox_ImmersiveSuicide_ForceZombification_tooltip = "Когда поставлена галочка, игрок всегда становится зомби после самоубийства, даже если он не был инфицирован.",
 }
