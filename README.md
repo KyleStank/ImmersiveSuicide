@@ -10,3 +10,7 @@ Project Zomboid mod that adds the option to immersivley end the suffering early.
 - Open SteamCMD
 - Run: `login <username> <password> <steam_guard_code>`
 - Run `workshop_build_item /abs/path/to/set-thumbnail.vdf`
+
+## Build Notes
+
+Source code has the comment `BUILD_NOTE` for differences between B41 and B42

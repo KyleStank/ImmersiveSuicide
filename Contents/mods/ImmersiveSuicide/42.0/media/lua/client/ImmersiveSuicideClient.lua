@@ -75,7 +75,7 @@ local function addSuicideOptionInventory(player, context, items)
                         getText("UI_ImmersiveSuicide_EquipRequired_Tooltip"),
                         getText("UI_ImmersiveSuicide_EquipRequired_OneHand_Description"),
                         option)
-                elseif not ISReloadWeaponAction.canShoot(item) then
+                elseif not ISReloadWeaponAction.canShoot(playerObj, item) then -- BUILD_NOTE: Build 42 Difference: "playerObj" does NOT get passed into this function for Build 41
                     createAndSetDisabledToolTipForOption(
                         getText("UI_ImmersiveSuicide_NoShoot_Tooltip"),
                         getText("UI_ImmersiveSuicide_NoShoot_Tooltip_Description"),
