@@ -8,3 +8,12 @@ option ImmersiveSuicide.ForceZombification
     page = ImmersiveSuicide,
     translation = ImmersiveSuicide_ForceZombification,
 }
+
+option ImmersiveSuicide.ShowConfirmationModal
+{
+    type = boolean,
+    default = true,
+
+    page = ImmersiveSuicide,
+    translation = ImmersiveSuicide_ShowConfirmationModal,
+}

@@ -12,7 +12,15 @@ local function performTwoHandedSuicide(playerObj, item)
     ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_Rifle"))
 end
 
-local function promptSuicideConfirmation(playerObj, item, type)
+local function performSuicide(playerObj, item)
+    if not item:isRequiresEquippedBothHands() then
+        performOneHandedSuicide(playerObj, item)
+    else
+        performTwoHandedSuicide(playerObj, item)
+    end
+end
+
+local function promptSuicideConfirmation(playerObj, item)
     local playerNum = playerObj:getPlayerNum()
     local width, height = 350, 140
     local dialog = ISYesNoDialog:new(
@@ -20,11 +28,7 @@ local function promptSuicideConfirmation(playerObj, item, type)
         (getCore():getScreenHeight() / 2) - height / 2,
         width, height, playerNum,
         function ()
-            if type == "ONE_HANDED" then
-                performOneHandedSuicide(playerObj, item)
-            elseif type == "TWO_HANDED" then
-                performTwoHandedSuicide(playerObj, item)
-            end
+            performSuicide(playerObj, item)
         end)
 
     dialog:initialise()
@@ -33,10 +37,10 @@ local function promptSuicideConfirmation(playerObj, item, type)
 end
 
 local function onSuicideInventoryOptionSelected(playerObj, item)
-    if not item:isRequiresEquippedBothHands() then
-        promptSuicideConfirmation(playerObj, item, "ONE_HANDED")
+    if SandboxVars.ImmersiveSuicide.ShowConfirmationModal then
+        promptSuicideConfirmation(playerObj, item)
     else
-        promptSuicideConfirmation(playerObj, item, "TWO_HANDED")
+        performSuicide(playerObj, item)
     end
 end
 
