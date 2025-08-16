@@ -43,6 +43,16 @@ local function promptSuicideConfirmation(playerObj, item)
     dialog:initialise()
     dialog.moveWithMouse = true
     dialog:addToUIManager()
+
+    if JoypadState.players[playerNum + 1] then
+        local inventory = getPlayerInventory(playerNum)
+        local loot = getPlayerLoot(playerNum)
+
+        inventory:setVisible(false)
+        loot:setVisible(false)
+
+        setJoypadFocus(playerNum, dialog)
+    end
 end
 
 function ImmersiveSuicide.startSuicide(playerObj, item)
