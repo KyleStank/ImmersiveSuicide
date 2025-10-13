@@ -77,7 +77,7 @@ local function processWeaponAmmo(character, weapon)
 end
 
 local function syncCharacterFX(character)
-    character:startMuzzleFlash()
+    -- character:startMuzzleFlash() -- BUILD_NOTE: Build 41/42 Difference: This line is enabled and worked for Build 41. It is disabled and DOES NOT work for Build 42 (throws error when enabled).
     character:splatBloodFloorBig()
 end
 
