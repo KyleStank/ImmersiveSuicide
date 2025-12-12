@@ -83,6 +83,7 @@ end
 
 local function performSuicide(character)
     local body = character:getBodyDamage()
+    local stats = character:getStats() -- BUILD_NOTE: Build 41/42 Difference: "stats" is a B42 concept only
     local head = body:getBodyPart(BodyPartType.Head)
 
     head:setHaveBullet(true, 0)
@@ -94,12 +95,16 @@ local function performSuicide(character)
         body:setInfected(true)
         body:setInfectionMortalityDuration(-1)
         body:setInfectionTime(-1)
-        body:setInfectionLevel(100)
+        -- BUILD_NOTE: Build 41/42 Difference: "stats" is a B42 concept only. B41 uses "body:setInfectionLevel" instead
+        stats:set(CharacterStat.ZOMBIE_INFECTION, 100)
+        stats:set(CharacterStat.ZOMBIE_FEVER, 100)
     else
         body:setInfected(false)
         body:setInfectionMortalityDuration(0)
         body:setInfectionTime(0)
-        body:setInfectionLevel(0)
+        -- BUILD_NOTE: Build 41/42 Difference: "stats" is a B42 concept only. B41 uses "body:setInfectionLevel" instead
+        stats:set(CharacterStat.ZOMBIE_INFECTION, 0)
+        stats:set(CharacterStat.ZOMBIE_FEVER, 0)
     end
     
     character:Kill(character)
