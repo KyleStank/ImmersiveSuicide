@@ -1,0 +1,11 @@
+{
+
+  "UI_ImmersiveSuicide_ConfirmSuicide": "Est�s segur que vols acabar amb el teu patiment? No hi ha marxa enrere despr�s d'aix�.",
+
+  "UI_ImmersiveSuicide_EquipRequired_Tooltip": "Cal equipar",
+  "UI_ImmersiveSuicide_EquipRequired_OneHand_Description": "Ha d'estar equipat a m� prim�ria",
+  "UI_ImmersiveSuicide_EquipRequired_TwoHands_Tooltip_Description": "Ha d'anar equipat amb les dues mans",
+
+  "UI_ImmersiveSuicide_NoShoot_Tooltip": "Munici� necess�ria",
+  "UI_ImmersiveSuicide_NoShoot_Tooltip_Description": "Almenys una bala ha d'estar amb cambra."
+}
