@@ -1,4 +1,5 @@
 require "TimedActions/ISBaseTimedAction"
+require "TimedActions/ISReloadWeaponAction"
 
 SuicideTimedAction = ISBaseTimedAction:derive("SuicideTimedAction")
 
@@ -34,46 +35,19 @@ end
 local function playWeaponEffects(character, weapon)
     character:playSound(weapon:getSwingSound());
 
-    local radius = weapon:getSoundRadius();
-    if isClient() then -- limit sound radius in MP
-        radius = radius / 1.8;
+    -- BUILD_NOTE: Build 41/42 Difference: B42 radius logic is different
+    local radius = weapon:getSoundRadius() * getSandboxOptions():getOptionByName("FirearmNoiseMultiplier"):getValue();
+    if not character:isOutside() then
+        radius = radius * 0.5
     end
 
-    character:addWorldSoundUnlessInvisible(radius, weapon:getSoundVolume(), false);
+    -- BUILD_NOTE: Build 41/42 Difference: "true" is passed instead of "false"
+    character:addWorldSoundUnlessInvisible(radius, weapon:getSoundVolume(), true);
 end
 
--- Ripped from ISReloadWeaponAction.onShoot
 local function processWeaponAmmo(character, weapon)
-    if weapon:haveChamber() then
-		weapon:setRoundChambered(false);
-	end
-
-	if weapon:isRackAfterShoot() then
-		-- shotgun need to be rack after each shot to rechamber round
-		-- See ISReloadWeaponAction.OnPlayerAttackFinished()
-		if weapon:haveChamber() then
-			weapon:setSpentRoundChambered(true);
-		end
-	else
-		-- automatic weapons eject the bullet cartridge
-		if not weapon:isManuallyRemoveSpentRounds() then
-			if weapon:getShellFallSound() then
-                character:playSound(weapon:getShellFallSound())
-			end
-		end
-
-		if weapon:getCurrentAmmoCount() >= weapon:getAmmoPerShoot() then
-			-- remove ammo, add one to chamber if we still have some
-			if weapon:haveChamber() then
-				weapon:setRoundChambered(true);
-			end
-			weapon:setCurrentAmmoCount(weapon:getCurrentAmmoCount() - weapon:getAmmoPerShoot())
-		end
-	end
-
-	if weapon:isManuallyRemoveSpentRounds() then
-		weapon:setSpentRoundCount(weapon:getSpentRoundCount() + weapon:getAmmoPerShoot())
-	end
+    -- BUILD_NOTE: Build 41/42 Difference: B42 is using ISReloadWeaponAction directly
+    ISReloadWeaponAction.onShoot(character, weapon)
 end
 
 local function syncCharacterFX(character)
