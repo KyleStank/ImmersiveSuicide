@@ -92,6 +92,15 @@ local function killCharacter(character)
     end
 end
 
+local capGunTypes = {
+    "Base.Revolver_CapGun",
+    "Base.Rifle_CapGun",
+}
+
+local function isCapGun(weapon)
+    return weapon ~= nil and table.contains(capGunTypes, weapon:getFullType())
+end
+
 function SuicideTimedAction:shootWeapon()
     playWeaponEffects(self.character, self.weapon)
     processWeaponAmmo(self.character, self.weapon)
@@ -108,7 +117,9 @@ function SuicideTimedAction:animEvent(event, parameter)
     end
 
     if event == "killTime" then
-        killCharacter(self.character)
+        if not isCapGun(self.weapon) then
+            killCharacter(self.character)
+        end
         self:forceComplete()
     end
 end
