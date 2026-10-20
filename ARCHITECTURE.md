@@ -117,7 +117,11 @@ renaming a source alone does not migrate the runtime animation contract.
 
 `42.0/media/lua/client/Debug/ISAnimationViewerKnifePreview.lua` extends the stock
 viewer only in debug mode, adding a knife model on `Bip01_Prop1` without editing
-base-game files. Viewer playback/prop approval is not gameplay integration.
+base-game files. The viewer's Options window includes `Immersive Suicide: Show
+Debug UI`, unchecked for each new viewer. It controls the knife button and model
+visibility, restoring the viewer's knife-enabled setting when checked again.
+The toolbar resizes and recenters when the button is shown or hidden. Stock
+option callbacks are preserved. Viewer playback/prop approval is not gameplay integration.
 The maintainer reports successful testing of the current functionality in both
 single-player and multiplayer, including the custom kitchen-knife animation and
 melee event timing. Future runtime changes still need relevant game testing.

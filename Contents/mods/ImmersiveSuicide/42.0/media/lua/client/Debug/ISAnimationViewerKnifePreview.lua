@@ -13,7 +13,8 @@ local PREFIX = "[ImmersiveSuicide AnimationViewer] "
 
 local function updateVisibility(viewer)
     if not viewer.ISKnifeModelCreated then return end
-    local visible = viewer.ISKnifeEnabled and viewer.currentObjectName == "character1"
+    local visible = viewer.ISKnifeDebugUIVisible and viewer.ISKnifeEnabled
+        and viewer.currentObjectName == "character1"
     if visible == viewer.ISKnifeVisible then return end
     viewer:java2("setObjectVisible", MODEL_ID, visible)
     viewer.ISKnifeVisible = visible
@@ -53,9 +54,41 @@ local function onKnifeToggle(viewer)
     viewer.ISKnifeButton:setTitle(enabled and "Kitchen knife: ON" or "Kitchen knife: OFF")
 end
 
+local function setDebugUIVisible(viewer, visible)
+    viewer.ISKnifeDebugUIVisible = visible
+    viewer.ISKnifeButton:setVisible(visible)
+
+    local width = viewer.ISKnifeToolbarWidth
+    if visible then
+        width = math.max(width, viewer.ISKnifeButton:getRight())
+    end
+    viewer.toolBar:setWidth(width)
+    viewer.toolBar:setX(viewer.width / 2 - width / 2)
+    updateVisibility(viewer)
+end
+
+local originalOptionsCreateChildren = AnimationClipViewer_OptionsPanel.createChildren
+function AnimationClipViewer_OptionsPanel:createChildren(...)
+    originalOptionsCreateChildren(self, ...)
+    self.ISKnifeOptionIndex = self.tickBox:addOption("Immersive Suicide: Show Debug UI")
+    self.tickBox:setSelected(self.ISKnifeOptionIndex, false)
+    self.tickBox:setWidthToFit()
+    self:shrinkWrap(self.tickBox:getX(), self.tickBox:getY(), nil)
+end
+
+local originalOptionsTickBox = AnimationClipViewer_OptionsPanel.onTickBox
+function AnimationClipViewer_OptionsPanel:onTickBox(index, selected)
+    if index == self.ISKnifeOptionIndex then
+        setDebugUIVisible(self.parent, selected)
+        return
+    end
+    originalOptionsTickBox(self, index, selected)
+end
+
 local originalCreateToolbar = AnimationClipViewer.createToolbar
 function AnimationClipViewer:createToolbar(...)
     originalCreateToolbar(self, ...)
+    self.ISKnifeToolbarWidth = self.toolBar.width
     local button = ISButton:new(
         self.buttonOptions:getRight() + 8, 0, 180, self.buttonOptions:getHeight(),
         "Kitchen knife: OFF", self, onKnifeToggle
@@ -67,8 +100,7 @@ function AnimationClipViewer:createToolbar(...)
     self.ISKnifeButton = button
     self.ISKnifeEnabled = false
     self.ISKnifeModelCreated = false
-    self.toolBar:setWidth(button:getRight())
-    self.toolBar:setX(self.width / 2 - self.toolBar.width / 2)
+    setDebugUIVisible(self, false)
 end
 
 local originalAnimalCombo = AnimationClipViewer.onComboAnimalModel

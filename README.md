@@ -156,7 +156,9 @@ The full Blender integration checks use the installed Blender path or an explici
 ```
 
 These checks do not start the game or validate gameplay. In debug Animation Viewer,
-the mod adds a kitchen-knife preview toggle for checking the held prop.
+open **Options** and check **Immersive Suicide: Show Debug UI** to reveal the
+kitchen-knife preview button. This option defaults to off for each new viewer;
+turning it off hides the button and knife model.
 
 ## Packaging and Workshop maintenance
 
