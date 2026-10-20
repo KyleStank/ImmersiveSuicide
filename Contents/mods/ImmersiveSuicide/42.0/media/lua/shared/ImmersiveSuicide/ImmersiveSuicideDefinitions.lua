@@ -76,6 +76,12 @@ local definitions = {
         actionAnim = "IS_ShortBladeOneHand", weaponKind = ImmersiveSuicideWeaponKind.SHORT_BLADE, bothHands = false,
         targetBodyPart = BodyPartType.Head, causesBullet = false,
     },
+    {
+        id = "IS_ShortBladeOneHand2",
+        actionAnim = "IS_ShortBladeOneHand2", weaponKind = ImmersiveSuicideWeaponKind.SHORT_BLADE, bothHands = false,
+        targetBodyPart = BodyPartType.Head, causesBullet = false,
+        impactCount = 3,
+    }
 }
 
 local definitionsById = {}

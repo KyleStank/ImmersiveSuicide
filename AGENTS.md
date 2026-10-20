@@ -89,6 +89,10 @@ For authoring, revising or debugging Blender/exported motion, use
   `.agents/skills/pz-animation/assets/rig/PZ_HumanRigV4.blend`. Always copy first.
 - The skill owns reusable scripts, frozen examples, recipes and ignored working
   drafts. `animation/` owns final production sources, not the iteration archive.
+  Group frozen examples by animation, restart milestone numbering at `01` in
+  each folder, and retain selected learning milestones rather than every draft.
+  Record visual and in-game approval separately; moving an example does not
+  authorize renaming its internal Blender action or exported clip.
 - Use a new review name/output; never rebuild over a user's edited blend. Ask for
   visible feedback or an optional single-pose correction, not per-frame manual work.
 - Keep authored motion sparse; export baking is separate. Preserve approved grip

@@ -16,10 +16,10 @@
 	</m_SubStateBoneWeights>
 	<m_Events>
 		<m_EventName>impactTime</m_EventName>
-		<m_TimePc>0.37</m_TimePc>
+		<m_TimePc>0.34</m_TimePc>
 	</m_Events>
 	<m_Events>
 		<m_EventName>killTime</m_EventName>
-		<m_TimePc>0.87</m_TimePc>
+		<m_TimePc>0.39</m_TimePc>
 	</m_Events>
 </animNode>

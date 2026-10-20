@@ -14,7 +14,7 @@ import bpy
 from mathutils import Vector
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts/blender"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "scripts/blender"))
 import build_animation as builder
 from motion_curves import curves, matrix_error, sample
 from motion_curves import describe, smooth_monotone

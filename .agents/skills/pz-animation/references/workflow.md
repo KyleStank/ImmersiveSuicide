@@ -73,9 +73,13 @@ validation and build record. The command checks copied/protected inputs, GLB
 structure and a read-only reimport position comparison before optional staging.
 
 For the fixed kitchen-knife grip, add
-`-GripReference skill:assets/examples/03-approved-finger-grip.blend`.
+`-GripReference skill:assets/examples/short-blade-one-hand/03-approved-finger-grip.blend`.
 This additionally checks hand-relative prop/thumb/finger transforms across the
 clip. It is not a general grip solver for every weapon.
+
+For a head-stab review export, use `assets/specs/export-head-stab.json` with
+`-Operation export` and a new name. See the [head-stab guide](examples/head-stab.md)
+for its single-key grip layout and validation limits.
 
 ## Review and promotion
 
@@ -100,13 +104,11 @@ an approved source. Game exports remain in the mod's media tree, not animation/.
 - `scripts/blender/`: reusable authoring, curve operations and checks.
 - `scripts/diagnostics/`: optional Java format/Lua troubleshooting.
 - `assets/rig/`: immutable rig template. Optional Blender backups are not registered or tested.
-- `assets/specs/`: three maintained starter recipes.
-- `assets/examples/`: seven intentional blends and the approved golden GLB.
-  Human edits and approved motion are preserved; duplicate snapshots and old
-  build chains are not needed.
-- `assets/examples/construction/`: four reference-only body-motion examples.
-  They cannot be launched as old recipes. The shared math lives in
-  `scripts/blender/motion_curves.py`.
+- `assets/specs/`: maintained template, retime and frozen-example export recipes.
+- `assets/examples/<animation>/`: curated numbered milestones, frozen reference
+  exports and small verification records. Numbering restarts at `01` per animation.
+- `assets/examples/<animation>/construction/`: guarded reference-only builders
+  and helpers. Shared curve math lives in `scripts/blender/motion_curves.py`.
 - `assets/references.json`: small curated approval/integrity registry, not a
   generated repository inventory.
 - `work/`: ignored generated files. It is not a backup.
@@ -132,7 +134,7 @@ uniquely named test drafts, retains failures for diagnosis):
 
 This exercises schema/path guards, template generation, retiming, approved-source
 export, fixed grip, golden GLB channels, protected hashes, and overwrite/failure
-handling. Results go in ignored work/. There is no inventory regeneration step.
+handling. Results go in ignored work/. Both frozen final exports are checked for motion parity. There is no inventory regeneration step.
 
 ## Scope
 

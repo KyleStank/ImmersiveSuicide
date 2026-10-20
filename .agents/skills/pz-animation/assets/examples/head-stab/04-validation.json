@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "reference_blend": "skill:assets/examples/head-stab/04-reviewed-backward-fall.blend",
+  "blend_sha256": "875530729887d63272c40119a9149e039da671e44aa2fd07994b47c61c0e1bb1",
+  "glb_sha256": "b5ffb3ed20ffd12704d20b57b4f9f14b4f2215af1e8bf0b652df7311cd843c39",
+  "frozen_clip_name": "Bob_IS_HeadStab_Review13",
+  "frame_range": [
+    0,
+    104
+  ],
+  "fps": 30,
+  "preserved_through_frame": 56,
+  "maximum_prefix_matrix_error": 0.0007712841033935547,
+  "comparison_tolerance_rig_units": 0.001,
+  "final_hold_matrix_error": 0.0,
+  "export_position_check": {
+    "frames_checked": 105,
+    "joint_count": 38,
+    "maximum_world_position_error": 2.1115949007853784e-05
+  },
+  "motion_checks": {
+    "quarter_frame_samples": 417,
+    "maximum_hand_relative_grip_matrix_error": 3.0279159545898438e-05,
+    "maximum_right_arm_target_distance": 27.13897046188815,
+    "right_arm_length": 27.412343978881836,
+    "grip_curve_layout": "Manual source has constant single-key prop curves; checked matrices directly."
+  },
+  "native_reference": "game:media/anims_X/Zombie/Zombie_Death.X",
+  "native_reference_sha256": "9bc9212422c1d581f1833b943ee0345914e16e912e10e0350989adec0b8e632b",
+  "native_speed_scale": 0.8,
+  "authoring_frames": [
+    56,
+    61,
+    66,
+    69,
+    72,
+    75,
+    78,
+    81,
+    86,
+    92,
+    98,
+    104
+  ],
+  "visual_review": "Maintainer approved the rendered motion.",
+  "in_game_verified": false,
+  "limitations": "Ground/contact corrections are approximate. No gameplay integration or runtime corpse-pose validation was performed."
+}

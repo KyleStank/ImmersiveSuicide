@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animNode>
+	<m_Name>IS_ShortBladeOneHand2</m_Name>
+	<m_AnimName>Bob_IS_ShortBladeOneHand2</m_AnimName>
+	<m_deferredBoneAxis>Y</m_deferredBoneAxis>
+	<m_SyncTrackingEnabled>false</m_SyncTrackingEnabled>
+	<m_SpeedScale>PerformSuicideSpeed</m_SpeedScale>
+	<m_Conditions>
+		<m_Name>PerformingAction</m_Name>
+		<m_Type>STRING</m_Type>
+		<m_StringValue>IS_ShortBladeOneHand2</m_StringValue>
+	</m_Conditions>
+	<m_SubStateBoneWeights>
+		<boneName>Dummy01</boneName>
+		<weight>1.0</weight>
+	</m_SubStateBoneWeights>
+	<m_Events>
+		<m_EventName>impactTime</m_EventName>
+		<m_TimePc>0.23</m_TimePc>
+		<m_ParameterValue>1</m_ParameterValue>
+	</m_Events>
+	<m_Events>
+		<m_EventName>impactTime</m_EventName>
+		<m_TimePc>0.38</m_TimePc>
+		<m_ParameterValue>2</m_ParameterValue>
+	</m_Events>
+	<m_Events>
+		<m_EventName>impactTime</m_EventName>
+		<m_TimePc>0.54</m_TimePc>
+		<m_ParameterValue>3</m_ParameterValue>
+	</m_Events>
+	<m_Events>
+		<m_EventName>killTime</m_EventName>
+		<m_TimePc>0.57</m_TimePc>
+	</m_Events>
+</animNode>

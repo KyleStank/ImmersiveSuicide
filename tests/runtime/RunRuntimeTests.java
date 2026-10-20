@@ -1,5 +1,7 @@
 // Run the mod tests using the game's Lua compiler without starting the game.
 import java.nio.file.*;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Element;
 import se.krka.kahlua.j2se.J2SEPlatform;
 import se.krka.kahlua.luaj.compiler.LuaCompiler;
 import se.krka.kahlua.stdlib.*;
@@ -20,6 +22,25 @@ class RunRuntimeTests {
 
         var thread = new KahluaThread(platform, env);
         thread.debugOwnerThread = Thread.currentThread();
+
+        // Exercise the actual animation event names, parameters and timing order.
+        Path headStabXml = root.resolve(
+            "Contents/mods/ImmersiveSuicide/42.0/media/AnimSets/player/actions/IS_ShortBladeOneHand2.xml"
+        );
+        var document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(headStabXml.toFile());
+        var eventNodes = document.getElementsByTagName("m_Events");
+        var animationEvents = platform.newTable();
+
+        for (int index = 0; index < eventNodes.getLength(); index++) {
+            var node = (Element) eventNodes.item(index);
+            var event = platform.newTable();
+            event.rawset("name", childText(node, "m_EventName"));
+            event.rawset("parameter", childText(node, "m_ParameterValue"));
+            event.rawset("time", Double.parseDouble(childText(node, "m_TimePc")));
+            animationEvents.rawset(index + 1, event);
+        }
+
+        env.rawset("headStabAnimationEvents", animationEvents);
 
         // Load the test replacements first, then the game classes and mod files.
         String[] files = {
@@ -59,6 +80,14 @@ class RunRuntimeTests {
         }
 
         System.out.println("RUNTIME_BEHAVIOR_OK (mocked game services, actual Kahlua and base classes)");
+    }
+
+    private static String childText(Element node, String name) {
+        var matches = node.getElementsByTagName(name);
+        if (matches.getLength() == 0) {
+            return "";
+        }
+        return matches.item(0).getTextContent().trim();
     }
 }
 

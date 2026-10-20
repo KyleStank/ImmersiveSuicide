@@ -29,7 +29,9 @@ Moving tracks remain sparse (the sample gesture uses five authored poses).
 right prop location/quaternion, thumb and fingers quaternion. Copy that field into
 a new schema1 spec, or apply it to an otherwise unanimated grip. These are local
 controller transforms for V4, not global hand positions or universal weapon axes.
-Reference is the saved frame20 FingerTest example. User-approved thumb clipping
+Reference is the saved frame20 FingerTest example. Read that saved pose before
+changing frames; reevaluating its action can replace unkeyed manual edits with
+older keyed values. User-approved thumb clipping
 is intentional. Do not change the grip to conceal an arm or wrist pose problem.
 
 The knife preview is a real game mesh: raw coordinates `(x,y,z)` map to

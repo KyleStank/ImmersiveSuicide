@@ -5,7 +5,7 @@ param(
     [string]$DestinationRoot = "$PSScriptRoot/..",
 
     [Parameter(ParameterSetName = 'Download')]
-    [uri]$SourceUrl = 'https://drive.google.com/file/d/1su58MYayjE6fk1IAlcKfvgkP2TFizcDY/view?usp=drive_link',
+    [uri]$SourceUrl = 'https://drive.google.com/file/d/1nrQrhGWLkfRrnOgPjzLbruDY-0z0OVa-/view?usp=sharing',
 
     [Parameter(Mandatory, ParameterSetName = 'Local')]
     [string]$ArchivePath,

@@ -27,7 +27,7 @@ end
 
 function BaseSuicideTimedAction:animEvent(event, parameter)
     if event == "impactTime" then
-        self:performImpact()
+        self:performImpact(parameter)
     elseif event == "killTime" and not self.outcomeRequested and self:isValid() then
         self.outcomeRequested = true
         ImmersiveSuicideNetwork.kill(self.character, self.definitionId)

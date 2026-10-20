@@ -19,7 +19,8 @@ $names = @(
     "Bob_IS_Verify_${id}_Template",
     "Bob_IS_Verify_${id}_Retime",
     "Bob_IS_Verify_${id}_Export",
-    "Bob_IS_Verify_${id}_Invalid"
+    "Bob_IS_Verify_${id}_Invalid",
+    "Bob_IS_Verify_${id}_HeadExport"
 )
 
 $work = Join-Path $skill 'work'
@@ -45,16 +46,26 @@ try {
     # Exercise all three toolkit operations using the test recipes.
     & $tool assets/specs/hand-gesture.json -Name $names[0] -BlenderPath $BlenderPath
     & $tool assets/specs/retime.json -Operation retime -Name $names[1] -BlenderPath $BlenderPath
-    & $tool assets/specs/export-final.json -Operation export -Name $names[2] -BlenderPath $BlenderPath -GripReference skill:assets/examples/03-approved-finger-grip.blend
+    & $tool assets/specs/export-final.json -Operation export -Name $names[2] -BlenderPath $BlenderPath -GripReference skill:assets/examples/short-blade-one-hand/03-approved-finger-grip.blend
 
     # The exported motion should match the approved reference GLB.
-    $gold = Join-Path $skill 'assets/examples/07-approved-overlapping-collapse.glb'
+    $gold = Join-Path $skill 'assets/examples/short-blade-one-hand/07-approved-overlapping-collapse.glb'
     $export = Join-Path $skill "work/output/$($names[2])/$($names[2]).glb"
 
     & $BlenderPath --background --python-exit-code 1 --python "$skill/scripts/blender/compare_clip_motion.py" -- $gold $export
 
     if ($LASTEXITCODE -ne 0) {
         throw 'Golden export changed'
+    }
+
+    # Compare the second example's exported motion without imposing the first grip's key layout.
+    & $tool assets/specs/export-head-stab.json -Operation export -Name $names[4] -BlenderPath $BlenderPath
+    $headReference = Join-Path $skill 'assets/examples/head-stab/04-reviewed-backward-fall.glb'
+    $headExport = Join-Path $skill "work/output/$($names[4])/$($names[4]).glb"
+    & $BlenderPath --background --python-exit-code 1 --python "$skill/scripts/blender/compare_clip_motion.py" -- $headReference $headExport
+
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Head-stab reference export changed'
     }
 
     # Reusing an output name should fail without changing the existing file.
@@ -102,10 +113,11 @@ try {
 
     @{
         passed = $true
-        contract_tests = 17
+        contract_tests = 18
         operations = @('template', 'retime', 'export')
         fixed_grip = $true
         golden_export = $true
+        head_stab_reference_export = $true
         overwrite_refused = $true
         failed_build_not_staged = $true
         blender = $BlenderPath

@@ -72,8 +72,14 @@ Build 42 is the active development implementation.
    exclusions during playback. Exclusion changes require restarting the game/server.
 4. XML nodes under `AnimSets/player/actions/` connect PerformingAction to clips
    and emit `impactTime` and `killTime`. The base action handles these events and
-   calls the firearm or melee action's `performImpact()` method. The firearm action owns
-   shootability checks, sound and ammunition; the melee action owns melee impact.
+   forwards the event parameter to the firearm or melee action's `performImpact()`
+   method. Melee `impactTime` parameters are integer impact numbers from 1 through
+   the definition's `impactCount` (default 1). Missing/empty parameters mean impact
+   1 for existing XML. Each number runs once per action; invalid numbers, repeated
+   callbacks and impacts after the death request are ignored. `IS_ShortBladeOneHand2`
+   declares three impacts and emits parameters `1`, `2`, `3`. Each accepted impact
+   plays the melee effects and uses the existing synchronized blood-FX command.
+   The firearm action retains its one-shot guard, shootability checks, sound and ammunition.
    Ammo availability is checked before shooting, not continuously after spending
    the round. Equipment and definition eligibility are checked throughout actions.
 5. `lua/client/ImmersiveSuicideNetwork.lua` owns the single client network handler
@@ -116,8 +122,20 @@ The maintainer reports successful testing of the current functionality in both
 single-player and multiplayer, including the custom kitchen-knife animation and
 melee event timing. Future runtime changes still need relevant game testing.
 
-The skill's registry and export regression recipe use frozen skill examples, not
-mutable production filenames. Root `initialize.ps1` writes ignored root
+The skill's registry and export regression recipes use frozen skill examples,
+not mutable production filenames. Examples are grouped in
+`assets/examples/short-blade-one-hand/` and `assets/examples/head-stab/`, each with
+its own numbered milestones, construction references and guide. The head-stab
+example is visually approved; in-game verification is pending. The maintainer
+separately saved `animation/Bob_IS_ShortBladeOneHand2.blend` and exported its
+renamed runtime GLB. The Build 42 `IS_ShortBladeOneHand2.xml` action and matching
+shared definition now connect this second clip to short-blade action selection.
+Its impact events are distinct from the single final `killTime` event; actual
+playback, sound timing and multiplayer behavior still need in-game verification.
+The original golden export and the head-stab reference export are both checked
+for unchanged motion by the Blender integration suite.
+
+Root `initialize.ps1` writes ignored root
 `.immersive-suicide.local.json` with schema 1, Blender's executable and an optional
 Project Zomboid installation directory. PowerShell entry points share validation
 via `scripts/project-config.ps1`; Python resolves preview `game:` paths through the same
@@ -132,8 +150,8 @@ while preserving the saved configuration for direct retry. Existing configuratio
 still requires `-Force`; reruns restore assets too unless explicitly skipped.
 `tests/test-initialize.ps1` verifies call order, skipping, existing-config guards
 and error propagation using copied scripts and stand-ins. `developer-assets.json`
-inventories ten developer assets with SHA-256 hashes: nine maintained `.blend`
-files and the skill's `07-approved-overlapping-collapse.glb` regression reference.
+inventories production Blender sources, the rig, and both sets of frozen
+animation milestones/reference GLBs with SHA-256 hashes.
 The manifest, packer and restorer do not restrict file extensions; assets belong
 in this bundle because they support development, rather than because of their format.
 Build 42 runtime GLBs under `Contents/` are game assets and stay outside this

@@ -45,6 +45,14 @@ and blunt items from that category. Add full item IDs under the relevant weapon-
 constant to extend it. A weapon kind without an exclusion group has no item exclusions.
 Restart both client and server after changing the list.
 
+For repeated melee impacts, add `impactCount` to the animation's shared definition
+and one XML `impactTime` event per hit, with `m_ParameterValue` set to `1`, `2`, etc.
+Each number runs once per action. Existing definitions default to one impact;
+missing/empty parameters mean impact 1. The second short-blade animation uses
+three events at `m_TimePc` values `0.23`, `0.38`, `0.54`; adjust these in
+`42.0/media/AnimSets/player/actions/IS_ShortBladeOneHand2.xml` to tune contact timing.
+Keep `killTime` as the separate final death event. Firearms remain single-shot.
+
 With a JDK on PATH and the game path configured, run isolated behavioral checks:
 
 ```powershell
@@ -103,9 +111,9 @@ rewriting configuration. Initialization tests use isolated fixtures:
 
 [developer-assets.json](developer-assets.json) lists files used for development,
 with repository-relative paths and SHA-256 hashes. Developer assets can use any
-file format; the manifest currently includes nine maintained `.blend` files and
-the skill's approved regression-reference `.glb`. A file's purpose determines
-whether it belongs here, rather than its extension. Build 42 runtime GLBs are game
+file format; the manifest includes production Blender sources, the rig, and
+frozen numbered examples with reference GLBs for both animations. A file's purpose
+determines whether it belongs here, rather than its extension. Build 42 runtime GLBs are game
 assets and are not included. Backups and generated drafts are also excluded.
 The restore script downloads the manually uploaded Google Drive bundle and
 validates its files against this local manifest.
@@ -115,6 +123,11 @@ validates its files against this local manifest.
 Final editable `.blend` sources live in `animation/`. Blender `.blend1` backups
 are optional and ignored by the production-folder check. Final exported character
 `.glb` files live in `Contents/mods/ImmersiveSuicide/42.0/media/anims_X/Bob/`.
+The maintainer's second production source is `animation/Bob_IS_ShortBladeOneHand2.blend`;
+its separately renamed/exported runtime clip is `Bob_IS_ShortBladeOneHand2`.
+Its XML action and shared definition make it available alongside the first
+short-blade animation. In-game playback and sound verification remain pending.
+
 Tools, reusable examples and working drafts live inside the
 [animation skill](.agents/skills/pz-animation/SKILL.md), not the production source folder.
 
@@ -123,6 +136,11 @@ authoring/export commands and prerequisites. The workflow has been tested locall
 with Blender 5.2.2 LTS and Paddlefruit V4. Never modify or directly open its original
 rig; always work on a copy. The maintainer reviews motion in Blender and in-game,
 and can optionally correct a single pose; animation expertise is not expected.
+
+Frozen learning milestones are grouped under `assets/examples/short-blade-one-hand/`
+and `assets/examples/head-stab/` inside the skill. Each sequence starts at `01`;
+the [example guides](.agents/skills/pz-animation/references/motion-and-validation.md#choosing-an-example)
+explain what to reuse and which review status applies. Production sources remain separate.
 
 Fast toolkit checks require Python 3.11 or newer (or the supported Blender's Python):
 

@@ -44,16 +44,18 @@ ask for visible feedback or an optional correction to one pose, not curve editin
    mutable production filenames; register only frozen reusable skill assets.
    Keep useful learning references inside the skill, with an explicit purpose.
 
-For the numbered, selected milestones from our first animation, read
-[the example progression](references/motion-and-validation.md#example-progression).
-These are reusable worked examples, not automatic model training or a complete
-draft history; inspect the relevant milestone and its documented limitations.
+For motion editing and checks, read
+[motion-and-validation.md](references/motion-and-validation.md). Frozen examples
+are grouped by animation, each with its own `01`, `02`, ... sequence:
 
-For timing, body transitions and preserving edits, read
-[motion-and-validation.md](references/motion-and-validation.md). Four knife-specific
-construction examples are retained for their techniques, NOT as general-purpose
-commands. Read one only when its technique is relevant; adapt its frame assumptions.
-Do not send a non-animator to pick or run these examples.
+- [Short-blade one-hand](references/examples/short-blade-one-hand.md): grip,
+  wrist, timing and overlapping forward collapse.
+- [Head stab](references/examples/head-stab.md): preserving a corrected lift,
+  repeating the corrected hand/elbow stroke and a full-body backward fall.
+
+Read the relevant guide and milestone rather than every draft. Construction code
+inside each example is reference-only; adapt it rather than replaying old timing.
+Keep approval status explicit: visual approval does not establish game approval.
 
 For Lua syntax or native X-mesh problems, read
 [diagnostics.md](references/diagnostics.md); those Java helpers are optional.

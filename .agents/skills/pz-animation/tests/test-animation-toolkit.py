@@ -37,6 +37,22 @@ class ToolkitTests(unittest.TestCase):
         }
         self.assertEqual(actual, expected)
 
+    def test_example_guides_and_developer_manifest(self):
+        registry = json.loads((SKILL / "assets/references.json").read_text())
+        manifest = json.loads((ROOT / "developer-assets.json").read_text())
+        by_path = {entry["path"]: entry["sha256"] for entry in manifest["files"]}
+        guides = registry["example_guides"]
+        for group, guide in guides.items():
+            self.assertTrue(recipe.resolve_path(guide, SKILL).is_file())
+            self.assertTrue((SKILL / "assets/examples" / group).is_dir())
+        for entry in registry["reference_assets"]:
+            asset = recipe.resolve_path(entry["path"], SKILL)
+            self.assertEqual(by_path[asset.relative_to(ROOT).as_posix()], entry["sha256"])
+            if "example" in entry:
+                self.assertIn(entry["example"], guides)
+                self.assertTrue(asset.is_relative_to(SKILL / "assets/examples" / entry["example"]))
+        self.assertFalse(any(path.startswith("Contents/") for path in by_path))
+
     def test_valid_starter(self):
         self.assertIs(recipe.validate_template(self.spec), self.spec)
 
@@ -74,7 +90,7 @@ class ToolkitTests(unittest.TestCase):
             self.assertEqual(Path(item["texture_path"]), root / "Knife.png")
 
     def test_unsafe_names(self):
-        for name in ["../Bob_X", "Bob_a/b", "Bob_Ã¤", "Bob_X.glb", "bob_x", ""]:
+        for name in ["../Bob_X", "Bob_a/b", "Bob_ÃƒÂ¤", "Bob_X.glb", "bob_x", ""]:
             with self.subTest(name=name), self.assertRaises(ValueError):
                 recipe.valid_name(name)
 
@@ -161,7 +177,7 @@ class ToolkitTests(unittest.TestCase):
     def test_module_syntax_and_local_imports(self):
         for path in (SKILL / "scripts").rglob("*.py"):
             ast.parse(path.read_text(encoding="utf-8"), str(path))
-        for path in (SKILL / "assets/examples/construction").glob("*.py"):
+        for path in (SKILL / "assets/examples").rglob("*.py"):
             text = path.read_text(encoding="utf-8")
             ast.parse(text, str(path))
             self.assertIn("Construction reference only", text)
@@ -195,9 +211,11 @@ class ToolkitTests(unittest.TestCase):
                     self.assertTrue((path.parent / target.split("#")[0]).exists(), (path, target))
 
     def test_sources_only_and_no_obsolete_scaffolding(self):
-        # Blender backups are optional. Only the .blend files are production sources.
+        # Keep the tracked placeholder and optional Blender backups out of the source check.
         files = [
-            p for p in (ROOT / "animation").iterdir() if not (p.is_file() and p.suffix == ".blend1")
+            p
+            for p in (ROOT / "animation").iterdir()
+            if p.name != ".gitkeep" and not (p.is_file() and p.suffix == ".blend1")
         ]
         self.assertTrue(files and all(p.is_file() and p.suffix == ".blend" for p in files))
         self.assertFalse((SKILL / "references/history").exists())

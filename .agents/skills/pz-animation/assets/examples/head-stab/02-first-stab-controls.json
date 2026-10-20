@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "reference_blend": "skill:assets/examples/head-stab/02-manual-first-stab.blend",
+  "reference_sha256": "cb75567c7405e3a3b4b8182a1ee7ee1344be8947aea5552b7027123586599f17",
+  "fps": 30,
+  "purpose": "Local hand and elbow controller transforms extracted from the edited first stroke; not a universal recipe.",
+  "frames": {
+    "17": {
+      "CTRL-ArmIK.R": {
+        "location": [
+          -6.3992815017700195,
+          -29.402530670166016,
+          25.00889015197754
+        ],
+        "rotation_quaternion": [
+          0.029722532257437706,
+          0.510764479637146,
+          0.3627232015132904,
+          -0.08032077550888062
+        ]
+      },
+      "CTRL-ElbowTarget.R": {
+        "location": [
+          11.759482383728027,
+          -35.39759063720703,
+          -6.009972095489502
+        ],
+        "rotation_quaternion": [
+          1.0,
+          0.0,
+          -4.44089183380283e-16,
+          1.1102230246251565e-14
+        ]
+      }
+    },
+    "24": {
+      "CTRL-ArmIK.R": {
+        "location": [
+          -2.719130039215088,
+          -31.572002410888672,
+          12.574135780334473
+        ],
+        "rotation_quaternion": [
+          0.029722532257437706,
+          0.510764479637146,
+          0.3627232015132904,
+          -0.08032077550888062
+        ]
+      },
+      "CTRL-ElbowTarget.R": {
+        "location": [
+          11.759482383728027,
+          -32.904502868652344,
+          -7.343520164489746
+        ],
+        "rotation_quaternion": [
+          1.0,
+          0.0,
+          -4.44089183380283e-16,
+          1.1102230246251565e-14
+        ]
+      }
+    }
+  }
+}

@@ -10,36 +10,60 @@
       "sha256": "a7b9fc3c7c8ee1076dea1b3bd1cf334e79b8280e1b8195b6e3093159cd3df83e"
     },
     {
-      "path": ".agents/skills/pz-animation/assets/examples/01-natural-reach-wrist.blend",
+      "path": ".agents/skills/pz-animation/assets/examples/short-blade-one-hand/01-natural-reach-wrist.blend",
       "sha256": "cf6e320f6e6b2139fe19918201d65e1ff9bd8e709cc3908b54705e426120ebaf"
     },
     {
-      "path": ".agents/skills/pz-animation/assets/examples/02-manual-knife-placement.blend",
+      "path": ".agents/skills/pz-animation/assets/examples/short-blade-one-hand/02-manual-knife-placement.blend",
       "sha256": "25cfd4f17bdb881360918ffc6809bc89db6aaf4d7b1b71b5e46dc97f8ff49052"
     },
     {
-      "path": ".agents/skills/pz-animation/assets/examples/03-approved-finger-grip.blend",
+      "path": ".agents/skills/pz-animation/assets/examples/short-blade-one-hand/03-approved-finger-grip.blend",
       "sha256": "4e9d162c9f84ec0247e562889ef36bb2862eeb40d9a15dbce7444ff359075be5"
     },
     {
-      "path": ".agents/skills/pz-animation/assets/examples/04-manual-early-motion.blend",
+      "path": ".agents/skills/pz-animation/assets/examples/short-blade-one-hand/04-manual-early-motion.blend",
       "sha256": "da7748f3a60b85947f4333be83c49b1452d823c3fbaf9498036e16a11a6e9a50"
     },
     {
-      "path": ".agents/skills/pz-animation/assets/examples/05-manual-wrist-blade-orientation.blend",
+      "path": ".agents/skills/pz-animation/assets/examples/short-blade-one-hand/05-manual-wrist-blade-orientation.blend",
       "sha256": "38b4b7bfcc0dfdb9631adc45c5afad22fc0dd5916590c904cc5f11dcd4a7d5f2"
     },
     {
-      "path": ".agents/skills/pz-animation/assets/examples/06-manual-timing-before-handle-repair.blend",
+      "path": ".agents/skills/pz-animation/assets/examples/short-blade-one-hand/06-manual-timing-before-handle-repair.blend",
       "sha256": "06517d9f9121542e493664074c5610249809eb2e77b6d9b96e7ee1fadaf603de"
     },
     {
-      "path": ".agents/skills/pz-animation/assets/examples/07-approved-overlapping-collapse.blend",
+      "path": ".agents/skills/pz-animation/assets/examples/short-blade-one-hand/07-approved-overlapping-collapse.blend",
       "sha256": "2f647342ed3e6e1aff00fcada9ace94f4415cb560b46f53657820fe5c5ecbd5e"
     },
     {
-      "path": ".agents/skills/pz-animation/assets/examples/07-approved-overlapping-collapse.glb",
+      "path": ".agents/skills/pz-animation/assets/examples/short-blade-one-hand/07-approved-overlapping-collapse.glb",
       "sha256": "1969be3613be75f453f2abf0e83a54f4f34a3e59763491ce31de1cc9ab0fea9f"
+    },
+    {
+      "path": "animation/Bob_IS_ShortBladeOneHand2.blend",
+      "sha256": "50fb5c843a02fb252806ba37625cbbf4494d9bd73e588358d49d34f031c3be9a"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/head-stab/01-manual-lift.blend",
+      "sha256": "eeb1c240feffd1a3774a37a2771757d4a17991b2709f3a57715fd7332aaff254"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/head-stab/02-manual-first-stab.blend",
+      "sha256": "cb75567c7405e3a3b4b8182a1ee7ee1344be8947aea5552b7027123586599f17"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/head-stab/03-approved-three-stabs.blend",
+      "sha256": "ec2557484972687ce38155154d450d9adf65e257f065f7ef647d32712987be2e"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/head-stab/04-reviewed-backward-fall.blend",
+      "sha256": "875530729887d63272c40119a9149e039da671e44aa2fd07994b47c61c0e1bb1"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/head-stab/04-reviewed-backward-fall.glb",
+      "sha256": "b5ffb3ed20ffd12704d20b57b4f9f14b4f2215af1e8bf0b652df7311cd843c39"
     }
   ]
 }

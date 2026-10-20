@@ -22,6 +22,9 @@ melee:animEvent("unrelatedEvent")
 check(c.blood == 0, "melee handled unrelated event")
 melee:animEvent("impactTime")
 melee:animEvent("impactTime")
+melee:animEvent("impactTime", "")
+melee:animEvent("impactTime", "1")
+melee:animEvent("impactTime", "2")
 check(c.blood == 1 and knife.shots == nil, "melee impact duplicated or consumed ammo")
 melee:animEvent("killTime")
 melee:animEvent("killTime")
@@ -31,6 +34,42 @@ melee:perform()
 check(c.queueCompleted, "queue completion did not reach base class")
 check(c.infected == false and c.infectionTime == 0 and c.stats.infection == 0, "default sandbox policy")
 
+-- Play the real three-stab XML events, including duplicate callbacks.
+c = character(knife)
+local repeated = engineAction(MeleeSuicideTimedAction:new(c, knife, "IS_ShortBladeOneHand2"))
+repeated:start()
+for _, parameter in ipairs({"invalid", "0", "-1", "1.5", "4"}) do
+    repeated:animEvent("impactTime", parameter)
+end
+check(c.blood == 0 and #c.sounds == 0 and #c.voices == 0, "invalid impact played effects")
+
+local previousTime = 0
+for _, event in ipairs(headStabAnimationEvents) do
+    check(event.time > previousTime and event.time <= 1, "animation events are not in playback order")
+    previousTime = event.time
+    repeated:animEvent(event.name, event.parameter)
+    local blood = c.blood
+    local sounds = #c.sounds
+    local voices = #c.voices
+    repeated:animEvent(event.name, event.parameter)
+    check(c.blood == blood and #c.sounds == sounds and #c.voices == voices, "duplicate event repeated effects")
+end
+check(c.blood == 3 and #c.sounds == 6 and #c.voices == 3, "three-stab XML did not perform three impacts")
+check(c.kills == 1 and repeated.completed, "repeated impacts changed death handling")
+
+-- A failed eligibility check must not consume an impact number.
+c = character(knife)
+local invalidImpact = engineAction(MeleeSuicideTimedAction:new(c, knife, "IS_ShortBladeOneHand2"))
+c.held = nil
+invalidImpact:animEvent("impactTime", "2")
+check(c.blood == 0, "unequipped action performed an impact")
+c.held = knife
+invalidImpact:animEvent("impactTime", "2")
+check(c.blood == 1, "invalid callback consumed the impact number")
+invalidImpact:animEvent("killTime")
+invalidImpact:animEvent("impactTime", "3")
+check(c.blood == 1, "impact performed after requesting death")
+
 -- A firearm should use one round and add a bullet wound.
 c = character(gun)
 local firearm = engineAction(FirearmSuicideTimedAction:new(c, gun, "Suicide_Handgun"))
@@ -39,6 +78,7 @@ firearm:animEvent("unrelatedEvent")
 check(c.blood == 0, "firearm handled unrelated event")
 firearm:animEvent("impactTime")
 firearm:animEvent("impactTime")
+firearm:animEvent("impactTime", "2")
 check(gun.shots == 1 and c.blood == 1, "firearm impact duplicated")
 check(firearm:isValid(), "empty gun invalidated action after shot")
 firearm:animEvent("killTime")
@@ -148,6 +188,26 @@ check(
 onlinePlayer = character(knife)
 Events.OnServerCommand.callbacks[1](serverMessage[1], serverMessage[2], serverMessage[3])
 check(onlinePlayer.kills == 1 and onlinePlayer.parts.head.bullet == nil, "client received wrong outcome")
+
+-- Every distinct melee impact follows the existing server/client blood-FX path.
+local repeatedCharacter = character(knife)
+local observedCharacter = character(knife)
+local networked = engineAction(MeleeSuicideTimedAction:new(repeatedCharacter, knife, "IS_ShortBladeOneHand2"))
+for impactNumber = 1, 3 do
+    clientMessage = nil
+    networked:animEvent("impactTime", tostring(impactNumber))
+    check(clientMessage ~= nil, "numbered impact did not send its FX request")
+    local request = clientMessage
+    clientMessage = nil
+    networked:animEvent("impactTime", tostring(impactNumber))
+    check(clientMessage == nil, "duplicate impact sent another FX request")
+    serverMessage = nil
+    onCommand(request[1], request[2], repeatedCharacter, request[3])
+    check(serverMessage ~= nil, "server did not relay the impact FX")
+    onlinePlayer = observedCharacter
+    Events.OnServerCommand.callbacks[1](serverMessage[1], serverMessage[2], serverMessage[3])
+end
+check(observedCharacter.blood == 3 and observedCharacter.kills == 0, "observer did not receive three nonfatal impacts")
 
 local before = c.kills
 serverMessage = nil

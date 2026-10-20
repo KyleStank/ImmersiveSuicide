@@ -1,7 +1,7 @@
 {
   "rig": "Paddlefruit V4",
   "reference_frame": 20,
-  "source": "assets/examples/03-approved-finger-grip.blend",
+  "source": "assets/examples/short-blade-one-hand/03-approved-finger-grip.blend",
   "constant_controls": [
     {
       "bone": "CTRL-Prop.R",

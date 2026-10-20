@@ -253,6 +253,8 @@ function character(item)
         held = item,
         kills = 0,
         blood = 0,
+        sounds = {},
+        voices = {},
         parts = {},
         stats = {}
     }
@@ -332,7 +334,12 @@ function character(item)
         self[key] = value
     end
 
-    function c:playSound()
+    function c:playSound(sound)
+        self.sounds[#self.sounds + 1] = sound
+    end
+
+    function c:transmitPlayerVoiceSound(sound)
+        self.voices[#self.voices + 1] = sound
     end
 
     function c:isOutside()
