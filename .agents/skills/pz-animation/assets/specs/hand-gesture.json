@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "name": "Bob_IS_HandGestureExample",
+  "base_action": "Idle",
+  "base_action_frame": 1,
+  "fps": 30,
+  "frame_start": 0,
+  "frame_end": 72,
+  "validate_every_frame": true,
+  "rig_settings": {"arm_ik_r": 1.0},
+  "body_preview": {"views":["front","right"],"frames":[{"frame":0,"name":"IDLE"},{"frame":24,"name":"RAISE"},{"frame":36,"name":"SIDE"},{"frame":72,"name":"RETURN"}]},
+  "tracks": [
+    {"bone":"CTRL-ArmIK.R","name":"hand_position","keyframes":[
+      {"frame":0,"semantic_offset":{}},
+      {"frame":24,"semantic_offset":{"up":18,"forward":14}},
+      {"frame":36,"semantic_offset":{"up":18,"forward":14,"outward":5}},
+      {"frame":48,"semantic_offset":{"up":18,"forward":14}},
+      {"frame":72,"semantic_offset":{}}
+    ]},
+    {"bone":"CTRL-ArmIK.R","name":"wrist","keyframes":[
+      {"frame":0,"rotation_degrees":[0,0,0]},
+      {"frame":24,"align_hand_to_forearm":true},
+      {"frame":36,"align_hand_to_forearm":true},
+      {"frame":48,"align_hand_to_forearm":true},
+      {"frame":72,"rotation_degrees":[0,0,0]}
+    ]}
+  ]
+}

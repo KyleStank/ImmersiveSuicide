@@ -2,8 +2,16 @@
 # TODO: Should I just add these via Git LFS?
 assets/**
 !assets/.gitkeep
+_sandbox/**
+!_sandbox/.gitkeep
+*.blend
+*.blend1
 
 # IDEs
+.immersive-suicide.local.json
 .vscode
 
 dist
+
+# Generated developer-asset archives and checksums
+/artifacts/

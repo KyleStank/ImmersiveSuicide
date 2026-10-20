@@ -1,31 +1,34 @@
-require "Actions/SuicideTimedAction"
+require "Actions/FirearmSuicideTimedAction"
+require "Actions/MeleeSuicideTimedAction"
 
 if not ImmersiveSuicide then
     ImmersiveSuicide = {}
 end
 
 -- Patches
-ImmersiveSuicide.RuntimePatchStatus = {
+ImmersiveSuicide.RuntimePatchStatus = ImmersiveSuicide.RuntimePatchStatus or {
     FirearmRadialMenu = false
 }
 
-local function performOneHandedSuicide(playerObj, item)
-    local animations = {"Suicide_Handgun", "Suicide_Handgun_02", "Suicide_Handgun_03"}
-    local randomIndex = Math.floor(Math.random() * 3) + 1
-    local selectedAnimation = animations[randomIndex]
-
-    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, selectedAnimation))
-end
-
-local function performTwoHandedSuicide(playerObj, item)
-    ISTimedActionQueue.add(SuicideTimedAction:new(playerObj, item, "Suicide_Rifle"))
-end
+local actionClasses = {
+    [ImmersiveSuicideWeaponKind.FIREARM] = FirearmSuicideTimedAction,
+    [ImmersiveSuicideWeaponKind.SHORT_BLADE] = MeleeSuicideTimedAction,
+}
 
 local function performSuicide(playerObj, item)
-    if not item:isRequiresEquippedBothHands() then
-        performOneHandedSuicide(playerObj, item)
-    else
-        performTwoHandedSuicide(playerObj, item)
+    local definitionIds = ImmersiveSuicideDefinitions.getMatchingIds(item)
+    if #definitionIds == 0 then return end
+
+    local definitionId = definitionIds[1]
+    if #definitionIds > 1 then
+        local randomIndex = Math.floor(Math.random() * #definitionIds) + 1
+        definitionId = definitionIds[randomIndex]
+    end
+
+    local definition = ImmersiveSuicideDefinitions.get(definitionId)
+    local actionClass = actionClasses[definition.weaponKind]
+    if actionClass then
+        ISTimedActionQueue.add(actionClass:new(playerObj, item, definitionId))
     end
 end
 

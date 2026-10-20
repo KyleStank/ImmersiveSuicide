@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "animation/Bob_IS_ShortBladeOneHand.blend",
+      "sha256": "d96e2d6a4fc1410ac357a674726f4d9f43c373ee178dc4028e56b3a06098db2c"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/rig/PZ_HumanRigV4.blend",
+      "sha256": "a7b9fc3c7c8ee1076dea1b3bd1cf334e79b8280e1b8195b6e3093159cd3df83e"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/01-natural-reach-wrist.blend",
+      "sha256": "cf6e320f6e6b2139fe19918201d65e1ff9bd8e709cc3908b54705e426120ebaf"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/02-manual-knife-placement.blend",
+      "sha256": "25cfd4f17bdb881360918ffc6809bc89db6aaf4d7b1b71b5e46dc97f8ff49052"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/03-approved-finger-grip.blend",
+      "sha256": "4e9d162c9f84ec0247e562889ef36bb2862eeb40d9a15dbce7444ff359075be5"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/04-manual-early-motion.blend",
+      "sha256": "da7748f3a60b85947f4333be83c49b1452d823c3fbaf9498036e16a11a6e9a50"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/05-manual-wrist-blade-orientation.blend",
+      "sha256": "38b4b7bfcc0dfdb9631adc45c5afad22fc0dd5916590c904cc5f11dcd4a7d5f2"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/06-manual-timing-before-handle-repair.blend",
+      "sha256": "06517d9f9121542e493664074c5610249809eb2e77b6d9b96e7ee1fadaf603de"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/07-approved-overlapping-collapse.blend",
+      "sha256": "2f647342ed3e6e1aff00fcada9ace94f4415cb560b46f53657820fe5c5ecbd5e"
+    },
+    {
+      "path": ".agents/skills/pz-animation/assets/examples/07-approved-overlapping-collapse.glb",
+      "sha256": "1969be3613be75f453f2abf0e83a54f4f34a3e59763491ce31de1cc9ab0fea9f"
+    }
+  ]
+}

@@ -15,7 +15,7 @@
 		<weight>1.0</weight>
 	</m_SubStateBoneWeights>
 	<m_Events>
-		<m_EventName>shootTime</m_EventName>
+		<m_EventName>impactTime</m_EventName>
 		<m_TimePc>0.33</m_TimePc>
 	</m_Events>
 	<m_Events>

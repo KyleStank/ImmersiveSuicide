@@ -17,7 +17,7 @@ local function applyPatch()
         local weapon = self:getWeapon()
 	    if not weapon then return end
 
-        if not ISReloadWeaponAction.canShoot(weapon) then -- BUILD_NOTE: Build 41/42 Difference: "self.character" does NOT get passed into this function for Build 41
+        if not ISReloadWeaponAction.canShoot(weapon) then
             return
         end
 

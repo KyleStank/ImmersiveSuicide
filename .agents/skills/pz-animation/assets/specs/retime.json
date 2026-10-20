@@ -1,0 +1,6 @@
+{
+  "name":"Bob_IS_RetimeExample",
+  "source_blend":"skill:assets/examples/07-approved-overlapping-collapse.blend",
+  "time_map":[[0,0],[36,36],[56,50],[84,74]],
+  "body_preview":{"views":["right"],"frames":[{"frame":36,"name":"START_DESCENT"},{"frame":50,"name":"KNEEL"},{"frame":74,"name":"END"}]}
+}

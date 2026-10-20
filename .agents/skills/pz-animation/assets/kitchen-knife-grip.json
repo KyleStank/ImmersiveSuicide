@@ -1,0 +1,39 @@
+{
+  "rig": "Paddlefruit V4",
+  "reference_frame": 20,
+  "source": "assets/examples/03-approved-finger-grip.blend",
+  "constant_controls": [
+    {
+      "bone": "CTRL-Prop.R",
+      "location": [
+        3.079226016998291,
+        0.8084733486175537,
+        2.3280482292175293
+      ],
+      "rotation_quaternion": [
+        0.9685057401657104,
+        -0.04794292896986008,
+        0.24420669674873352,
+        -0.007835222408175468
+      ]
+    },
+    {
+      "bone": "CTRL-Thumb.R",
+      "rotation_quaternion": [
+        0.865057110786438,
+        0.2699146270751953,
+        -0.0029606204479932785,
+        0.4228634834289551
+      ]
+    },
+    {
+      "bone": "CTRL-Fingers.R",
+      "rotation_quaternion": [
+        0.7827108502388,
+        1.1052810577893979e-07,
+        -4.1435841922066174e-06,
+        0.6223855018615723
+      ]
+    }
+  ]
+}
